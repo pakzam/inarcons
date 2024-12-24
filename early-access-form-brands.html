@@ -11,18 +11,18 @@
     <!-- Header Section -->
     <header class="bg-white shadow">
         <div class="container mx-auto px-4 py-4 flex items-center">
-        <a href=""><img src="logo-inarcons.png" alt="Logo" class="w-40 h-16 p-2"></a>
+        <a href=""><img src="logo-inarcons.png" alt="Logo" class="h-14 p-2"></a>
         <div class="ml-auto">
             <button class="font-medium bg-yellow-400 text-white py-2 px-4 rounded hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"> Login </button>
         </div>
         </div>
     </header>
     <div class=" min-h-screen flex items-center justify-center">
-    <div class="bg-white shadow-lg rounded-lg mt-10 mb-10 p-8 w-full max-w-lg">
+    <div class="bg-white shadow-lg rounded-lg mt-10 mb-10 p-8 w-full max-w-6xl">
         <h1 class="font-medium text-2xl mb-4">Welcome to Inarcons</h1>
         <p class="text-gray-600 mb-6 text-sm ">One stop shop for your building materials, professionals, and networks</p>
 
-        <form action="#" method="POST" class="space-y-4">
+        <form action="#" method="POST" class="space-y-4 text-sm">
             <!-- Role Selection -->
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Are You a</label>
@@ -44,91 +44,247 @@
                 <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
             </div>
 
-            <!-- Company Name -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Company Name -->
+                <div>
+                    <label for="company-name" class="block text-sm font-medium text-gray-700">Company Name (as per NPWP)</label>
+                    <input type="text" id="company-name" name="company-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+
+                <!-- Brand -->
+                <div>
+                    <label for="brand" class="block text-sm font-medium text-gray-700">Brand (insert comma if multiple)</label>
+                    <input type="text" id="brand" name="brand" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- WhatsApp Number -->
+                <div>
+                  <label for="whatsapp-number" class="block text-sm font-medium text-gray-700">WhatsApp Number</label>
+                  <input 
+                    type="text" 
+                    id="whatsapp-number" 
+                    name="whatsapp-number" 
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  >
+                </div>
+              
+                <!-- Email -->
+                <div>
+                  <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  >
+                </div>
+              </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Domicile -->
+                <div>
+                    <label for="domicile" class="block text-sm font-medium text-gray-700" >Domicile</label>
+                    <select id="domicile" name="domicile" class="w-full border-gray-300 rounded-md shadow-sm text-sm ">
+                    <option value="">Select Provinces</option>
+                    <option value="aceh">Aceh</option>
+                    <option value="sumatera-utara">Sumatera Utara</option>
+                    <option value="sumatera-barat">Sumatera Barat</option>
+                    <option value="riau">Riau</option>
+                    <option value="kepulauan-riau">Kepulauan Riau</option>
+                    <option value="jambi">Jambi</option>
+                    <option value="sumatera-selatan">Sumatera Selatan</option>
+                    <option value="bengkulu">Bengkulu</option>
+                    <option value="lampung">Lampung</option>
+                    <option value="bangka-belitung">Kepulauan Bangka Belitung</option>
+                    <option value="jakarta">Jakarta</option>
+                    <option value="jawa-barat">Jawa Barat</option>
+                    <option value="jawa-tengah">Jawa Tengah</option>
+                    <option value="yogyakarta">DI Yogyakarta</option>
+                    <option value="jawa-timur">Jawa Timur</option>
+                    <option value="banten">Banten</option>
+                    <option value="bali">Bali</option>
+                    <option value="nusa-tenggara-barat">Nusa Tenggara Barat</option>
+                    <option value="nusa-tenggara-timur">Nusa Tenggara Timur</option>
+                    <option value="kalimantan-barat">Kalimantan Barat</option>
+                    <option value="kalimantan-tengah">Kalimantan Tengah</option>
+                    <option value="kalimantan-selatan">Kalimantan Selatan</option>
+                    <option value="kalimantan-timur">Kalimantan Timur</option>
+                    <option value="kalimantan-utara">Kalimantan Utara</option>
+                    <option value="sulawesi-utara">Sulawesi Utara</option>
+                    <option value="sulawesi-tengah">Sulawesi Tengah</option>
+                    <option value="sulawesi-selatan">Sulawesi Selatan</option>
+                    <option value="sulawesi-tenggara">Sulawesi Tenggara</option>
+                    <option value="gorontalo">Gorontalo</option>
+                    <option value="sulawesi-barat">Sulawesi Barat</option>
+                    <option value="maluku">Maluku</option>
+                    <option value="maluku-utara">Maluku Utara</option>
+                    <option value="papua">Papua</option>
+                    <option value="papua-barat">Papua Barat</option>
+                    <option value="papua-selatan">Papua Selatan</option>
+                    <option value="papua-tengah">Papua Tengah</option>
+                    <option value="papua-pegunungan">Papua Pegunungan</option>
+                    </select>          
+                </div>
+
+                <!-- Type of Vendor Dropdown --> 
+                <div> 
+                    <label for="vendor_type" class="block text-sm font-medium text-gray-700">Type of Vendor</label> 
+                    <select id="vendor_type" name="vendor_type" class="text-sm mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"> 
+                        <option value="principal_brand_owner">Principal Brand Owner</option> 
+                        <option value="agent">Agent</option> 
+                        <option value="distributor">Distributor</option> 
+                        <option value="retailer">Retailer "Toko Bangunan"</option> 
+                        <option value="sole_distributor">Sole Distributor</option> 
+                    </select> 
+                </div>
+            </div>
+
+            <!-- Product Category -->
             <div>
-                <label for="company-name" class="block text-sm font-medium text-gray-700">Company Name (as per NPWP)</label>
-                <input type="text" id="company-name" name="company-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Product Category</label>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="bathrooms" class="text-blue-600 focus:ring-blue-500">
+                    <span>Bathrooms</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="kitchens" class="text-blue-600 focus:ring-blue-500">
+                    <span>Kitchens</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="floorings" class="text-blue-600 focus:ring-blue-500">
+                    <span>Floorings</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="ceilings" class="text-blue-600 focus:ring-blue-500">
+                    <span>Ceilings</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="wall_partitions" class="text-blue-600 focus:ring-blue-500">
+                    <span>Wall & Partitions</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="paints_protective_coatings" class="text-blue-600 focus:ring-blue-500">
+                    <span>Paints & Protective Coatings</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="cladding" class="text-blue-600 focus:ring-blue-500">
+                    <span>Cladding</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="processed_wood" class="text-blue-600 focus:ring-blue-500">
+                    <span>Processed Wood</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="roofing" class="text-blue-600 focus:ring-blue-500">
+                    <span>Roofing</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="door_windows" class="text-blue-600 focus:ring-blue-500">
+                    <span>Door & Windows</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="landscape_outdoors" class="text-blue-600 focus:ring-blue-500">
+                    <span>Landscape & Outdoors</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="furniture" class="text-blue-600 focus:ring-blue-500">
+                    <span>Furniture</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="interior_finishes" class="text-blue-600 focus:ring-blue-500">
+                    <span>Interior & Finishes</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="building_material" class="text-blue-600 focus:ring-blue-500">
+                    <span>Building Material</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="appliances" class="text-blue-600 focus:ring-blue-500">
+                    <span>Appliances</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="tools_machinery" class="text-blue-600 focus:ring-blue-500">
+                    <span>Tools & Machinery</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="intelligent_building_digital_architecture" class="text-blue-600 focus:ring-blue-500">
+                    <span>Intelligent Building & Digital Architecture</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="construction_chemical" class="text-blue-600 focus:ring-blue-500">
+                    <span>Construction Chemical</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="hse_products" class="text-blue-600 focus:ring-blue-500">
+                    <span>HSE Products</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="cement_concrete_mortar" class="text-blue-600 focus:ring-blue-500">
+                    <span>Cement, Concrete, Mortar</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="modular_construction_system" class="text-blue-600 focus:ring-blue-500">
+                    <span>Modular Construction System</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="structural_building_products" class="text-blue-600 focus:ring-blue-500">
+                    <span>Structural Building Products</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="iron_steel" class="text-blue-600 focus:ring-blue-500">
+                    <span>Iron & Steel</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="audio_visual_system" class="text-blue-600 focus:ring-blue-500">
+                    <span>Audio Visual System</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="hvacr" class="text-blue-600 focus:ring-blue-500">
+                    <span>HVACR</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="security_safety" class="text-blue-600 focus:ring-blue-500">
+                    <span>Security Safety</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="fire_safety" class="text-blue-600 focus:ring-blue-500">
+                    <span>Fire Safety</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="car_park_system" class="text-blue-600 focus:ring-blue-500">
+                    <span>Car Park System</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="lighting" class="text-blue-600 focus:ring-blue-500">
+                    <span>Lighting</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="electrical_system" class="text-blue-600 focus:ring-blue-500">
+                    <span>Electrical System</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="plumbing_drainage_systems" class="text-blue-600 focus:ring-blue-500">
+                    <span>Plumbing & Drainage Systems</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="maters_gauges_regulators" class="text-blue-600 focus:ring-blue-500">
+                    <span>Maters, Gauges & Regulators</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" name="product_category" value="Accessibility" class="text-blue-600 focus:ring-blue-500">
+                    <span>Accessibility</span>
+                </label>
+                </div>
+            </label>
             </div>
-
-            <!-- Brand -->
-            <div>
-                <label for="brand" class="block text-sm font-medium text-gray-700">Brand (insert comma if multiple)</label>
-                <input type="text" id="brand" name="brand" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-            </div>
-
-            <!-- WhatsApp Number -->
-            <div>
-                <label for="whatsapp-number" class="block text-sm font-medium text-gray-700">WhatsApp Number</label>
-                <input type="text" id="whatsapp-number" name="whatsapp-number" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-            </div>
-
-            <!-- Email -->
-            <div>
-                <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
-                <input type="email" id="email" name="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-            </div>
-
-            <!-- Domicile -->
-            <div>
-                <label for="domicile" class="block text-sm font-medium text-gray-700" >Domicile</label>
-                <select id="domicile" name="domicile" class="w-full border-gray-300 rounded-md shadow-sm text-sm ">
-                <option value="">Select Provinces</option>
-                <option value="aceh">Aceh</option>
-                <option value="sumatera-utara">Sumatera Utara</option>
-                <option value="sumatera-barat">Sumatera Barat</option>
-                <option value="riau">Riau</option>
-                <option value="kepulauan-riau">Kepulauan Riau</option>
-                <option value="jambi">Jambi</option>
-                <option value="sumatera-selatan">Sumatera Selatan</option>
-                <option value="bengkulu">Bengkulu</option>
-                <option value="lampung">Lampung</option>
-                <option value="bangka-belitung">Kepulauan Bangka Belitung</option>
-                <option value="jakarta">Jakarta</option>
-                <option value="jawa-barat">Jawa Barat</option>
-                <option value="jawa-tengah">Jawa Tengah</option>
-                <option value="yogyakarta">DI Yogyakarta</option>
-                <option value="jawa-timur">Jawa Timur</option>
-                <option value="banten">Banten</option>
-                <option value="bali">Bali</option>
-                <option value="nusa-tenggara-barat">Nusa Tenggara Barat</option>
-                <option value="nusa-tenggara-timur">Nusa Tenggara Timur</option>
-                <option value="kalimantan-barat">Kalimantan Barat</option>
-                <option value="kalimantan-tengah">Kalimantan Tengah</option>
-                <option value="kalimantan-selatan">Kalimantan Selatan</option>
-                <option value="kalimantan-timur">Kalimantan Timur</option>
-                <option value="kalimantan-utara">Kalimantan Utara</option>
-                <option value="sulawesi-utara">Sulawesi Utara</option>
-                <option value="sulawesi-tengah">Sulawesi Tengah</option>
-                <option value="sulawesi-selatan">Sulawesi Selatan</option>
-                <option value="sulawesi-tenggara">Sulawesi Tenggara</option>
-                <option value="gorontalo">Gorontalo</option>
-                <option value="sulawesi-barat">Sulawesi Barat</option>
-                <option value="maluku">Maluku</option>
-                <option value="maluku-utara">Maluku Utara</option>
-                <option value="papua">Papua</option>
-                <option value="papua-barat">Papua Barat</option>
-                <option value="papua-selatan">Papua Selatan</option>
-                <option value="papua-tengah">Papua Tengah</option>
-                <option value="papua-pegunungan">Papua Pegunungan</option>
-                </select>          
-            </div>
-
-            <!-- Type of Vendor Dropdown --> 
-            <div> 
-                <label for="vendor_type" class="block text-sm font-medium text-gray-700">Type of Vendor</label> 
-                <select id="vendor_type" name="vendor_type" class="text-sm mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"> 
-                    <option value="principal_brand_owner">Principal Brand Owner</option> 
-                    <option value="agent">Agent</option> 
-                    <option value="distributor">Distributor</option> 
-                    <option value="retailer">Retailer "Toko Bangunan"</option> 
-                    <option value="sole_distributor">Sole Distributor</option> 
-                </select> 
-            </div>
-
+            
             <!-- Desired Feature --> 
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Desired Feature</label>
-                <div class="space-y-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     <label class="flex items-center space-x-2">
                         <input type="checkbox" name="feature[]" value="Product-Showcase" class="text-blue-600 focus:ring-blue-500">
                         <span>Product Showcase</span>
