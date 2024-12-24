@@ -5,10 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inarcons Form</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+<body class="bg-gray-100">
+    <!-- Header Section -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-4 py-4 flex items-center">
+        <a href=""><img src="logo-inarcons.png" alt="Logo" class="w-40 h-16 p-2"></a>
+        <div class="ml-auto">
+            <button class="font-medium bg-yellow-400 text-white py-2 px-4 rounded hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"> Login </button>
+        </div>
+        </div>
+    </header>
+    <div class=" min-h-screen flex items-center justify-center">
     <div class="bg-white shadow-lg rounded-lg mt-10 mb-10 p-8 w-full max-w-lg">
-        <h1 class="text-2xl font-bold mb-4">Welcome to Inarcons</h1>
+        <h1 class="text-2xl font-medium mb-4">Welcome to Inarcons</h1>
         <p class="text-gray-600 mb-6 text-sm ">One stop shop for your building materials, professionals, and networks</p>
 
         <form action="#" method="POST" class="space-y-4">
@@ -216,20 +227,21 @@
                 <div class="flex space-x-4">
                 <div>
                     <input type="radio" id="earlyAccessYes" name="earlyAccess" value="yes">
-                    <label for="earlyAccessYes">Yes</label>
+                    <label for="earlyAccessYes"> Yes</label>
                 </div>
                 <div>
                     <input type="radio" id="earlyAccessNo" name="earlyAccess" value="no">
-                    <label for="earlyAccessNo">No</label>
+                    <label for="earlyAccessNo"> No</label>
                 </div>
                 </div>
             </div>
             
             <!-- Submit Button -->
             <div class="pt-8 pb-8">
-                <button type="submit" class="w-full bg-yellow-400 text-white py-2 px-4 rounded-md shadow-sm hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Submit</button>
+                <button type="submit" class="font-medium w-full bg-yellow-400 text-white py-2 px-4 rounded-md shadow-sm hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Submit</button>
             </div>
         </form>
+    </div>
     </div>
 </body>
 </html>
