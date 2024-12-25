@@ -18,7 +18,7 @@ function App() {
         <div className="container mx-auto px-4 py-4 flex items-center">
         <a href="#"><img src={logo} alt="Logo" className="h-14 p-2" /></a>
         <div className="ml-auto">
-            <button className="font-medium bg-yellow-400 text-white py-2 px-4 rounded hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"> Login </button>
+          
         </div>
         </div>
     </header>
@@ -28,7 +28,8 @@ function App() {
             <p className="text-gray-600 mb-6 text-sm ">One stop shop for your building materials, professionals, and networks</p>
 
             <form action="#" method="POST" className="space-y-4 text-sm">
-                <div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
+                <div className='flex space-x-4 items-start'>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Are You a</label>
                     <div className="flex space-x-4">
                         <label className="flex items-center space-x-2">
@@ -47,24 +48,25 @@ function App() {
                         </label>
                     </div>
                 </div>
-                <div className="py-4">
+                <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-                    <input type="text" id="name" name="name" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    <input type="text" id="name" name="name" className="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
                       value={name}
                       onChange={(e)=>{setName(e.target.value)}}
                     />
                 </div>
-
+              </div>
+              
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
                     <div>
                         <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">Company Name <span className="font-normal">(as per NPWP)</span></label>
-                        <input type="text" id="companyName" name="companyName" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        <input type="text" id="companyName" name="companyName" className="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
                           value={companyName} onChange={(e)=>{setCompanyName(e.target.value)}}
                         />
                     </div>
                     <div>
                         <label htmlFor="brand" className="block text-sm font-medium text-gray-700">Brand <span className="font-normal">(insert comma if multiple)</span></label>
-                        <textarea type="text" id="brand" name="brand" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" 
+                        <textarea type="text" id="brand" name="brand" className="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" 
                           value={brand} onChange={(e)=>{setBrand(e.target.value)}}
                         />
                     </div>
@@ -73,21 +75,21 @@ function App() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
                     <div>
                         <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700">WhatsApp Number</label>
-                        <input type="tel" id="whatsapp" name="whatsapp" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" 
+                        <input type="tel" id="whatsapp" name="whatsapp" className="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" 
                           value={whatsapp} onChange={(e)=>{setWhatsapp(e.target.value)}}
                         />
                     </div>
 
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">E-mail</label>
-                        <input type="email" id="email" name="email" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+                        <input type="email" id="email" name="email" className="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" />
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
                     <div>
                         <label htmlFor="domicile" className="block text-sm font-medium text-gray-700" >Domicile</label>
-                        <select id="domicile"  name="domicile" className="w-full border-gray-300 rounded-md shadow-sm text-sm "
+                        <select id="domicile"  name="domicile" className="p-2 mt-1 w-full border-gray-300 rounded-md shadow-sm text-sm "
                           onChange={(e)=>{ setDomicile(e.target.value) }}
                           value={domicile}
                           defaultValue={''}
@@ -134,8 +136,10 @@ function App() {
                     </div>
 
                     <div>
+                      {areYouA === 'professional' ?
+                        <>
                         <label htmlFor="profession" className="block text-sm font-medium text-gray-700">Profession</label>
-                        <select id="profession" name="profession" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-sm focus:border-blue-500 focus:ring-blue-500"
+                        <select id="profession" name="profession" className="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm text-sm focus:border-blue-500 focus:ring-blue-500"
                           value={profession}
                           onChange={(e)=>{setProfression(e.target.value)}}
                           defaultValue={''}
@@ -164,8 +168,158 @@ function App() {
                         <option value="Students">Students</option>
                         <option value="Academician">Academician</option>
                         </select>
+                        </>
+                      : <>
+                        <label for="typeOfVendor" class="block text-sm font-medium text-gray-700">Type of Vendor</label> 
+                        <select id="typeOfVendor" name="typeOfVendor" class="p-2 text-sm mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"> 
+                            <option value="Principal Brand Owner">Principal Brand Owner</option> 
+                            <option value="Agent">Agent</option> 
+                            <option value="Distributor">Distributor</option> 
+                            <option value='Retailer "Toko Bangunan"'>Retailer "Toko Bangunan"</option> 
+                            <option value="Sole Distributor">Sole Distributor</option> 
+                        </select> 
+                        </> }
                     </div>
                 </div>
+                {areYouA === 'brands' ?
+                  <div class="py-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Product Category</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="bathrooms" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Bathrooms</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="kitchens" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Kitchens</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="floorings" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Floorings</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="ceilings" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Ceilings</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="wall_partitions" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Wall & Partitions</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="paints_protective_coatings" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Paints & Protective Coatings</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="cladding" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Cladding</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="processed_wood" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Processed Wood</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="roofing" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Roofing</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="door_windows" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Door & Windows</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="landscape_outdoors" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Landscape & Outdoors</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="furniture" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Furniture</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="interior_finishes" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Interior & Finishes</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="building_material" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Building Material</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="appliances" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Appliances</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="tools_machinery" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Tools & Machinery</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="intelligent_building_digital_architecture" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Intelligent Building & Digital Architecture</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="construction_chemical" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Construction Chemical</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="hse_products" class="text-blue-600 focus:ring-blue-500" />
+                          <span>HSE Products</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="cement_concrete_mortar" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Cement, Concrete, Mortar</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="modular_construction_system" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Modular Construction System</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="structural_building_products" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Structural Building Products</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="iron_steel" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Iron & Steel</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="audio_visual_system" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Audio Visual System</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="hvacr" class="text-blue-600 focus:ring-blue-500" />
+                          <span>HVACR</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="security_safety" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Security Safety</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="fire_safety" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Fire Safety</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="car_park_system" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Car Park System</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="lighting" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Lighting</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="electrical_system" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Electrical System</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="plumbing_drainage_systems" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Plumbing & Drainage Systems</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="maters_gauges_regulators" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Maters, Gauges & Regulators</span>
+                      </label>
+                      <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="Accessibility" class="text-blue-600 focus:ring-blue-500" />
+                          <span>Accessibility</span>
+                      </label>
+                    </div>
+                  </div>
+                : <></> }
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Desired Feature</label>
@@ -302,7 +456,7 @@ function App() {
                     }
                 </div>
 
-                <div className="py-4">
+                <div className="py-4 flex space-x-4">
                     <label className="block text-sm font-medium text-gray-700 mb-2">Interested to receive early access <span className="font-normal">(Free Premium with incentives)</span>?</label>
                     <div className="flex space-x-4">
                     <div>
