@@ -19,6 +19,7 @@ function App() {
   const [severity, setseverity] = useState()
   const [open, setOpen] = useState(false);
   const [desiredfeature, setDesiredfeature] = useState([])
+  const [productCategory, setProductCategory] = useState([])
 
   const handleClose = ( event, reason) => {
     if (reason === 'clickaway') {return;}
@@ -47,6 +48,31 @@ function App() {
       setDesiredfeature(tempDesired)
     } else {
       setDesiredfeature([])
+    }
+  }
+
+  const addProductCategory = (id) => {    
+    const tempProductCategory =[]    
+    if (productCategory.length > 0) {
+      for (let i = 0; i < productCategory.length; i++) {
+        tempProductCategory.push(productCategory[i]);                    
+      } 
+      tempProductCategory.push(id)
+      setProductCategory(tempProductCategory)
+    } else {
+      setProductCategory([id])
+    }
+  }
+
+  const removeProductCategory = (id) => {    
+    let tempProductCategory = ''    
+    if (productCategory.length > 0) {
+      tempProductCategory = productCategory.filter((val)=> {
+        return id !== val
+      })
+      setProductCategory(tempProductCategory)
+    } else {
+      setProductCategory([])
     }
   }
 
@@ -258,145 +284,309 @@ function App() {
                         </> }
                     </div>
                 </div>
-                {areYouA === 'brands' ?
-                  <div className="py-4">
+                
+                  <div className={areYouA === 'brands' ? "py-4" : "hidden" }>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Product Category</label>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="bathrooms" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="bathrooms" className="text-blue-600 focus:ring-blue-500"   
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(1)} 
+                              else {removeProductCategory(1)}
+                            }}
+                          />
                           <span>Bathrooms</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="kitchens" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="kitchens" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(2)} 
+                              else {removeProductCategory(2)}
+                            }}
+                          />
                           <span>Kitchens</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="floorings" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="floorings" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(3)} 
+                              else {removeProductCategory(3)}
+                            }}
+                          />
                           <span>Floorings</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="ceilings" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="ceilings" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(4)} 
+                              else {removeProductCategory(4)}
+                            }}
+                          />
                           <span>Ceilings</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="wall_partitions" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="wall_partitions" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(5)} 
+                              else {removeProductCategory(5)}
+                            }}
+                          />
                           <span>Wall & Partitions</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="paints_protective_coatings" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="paints_protective_coatings" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(6)} 
+                              else {removeProductCategory(6)}
+                            }}
+                          />
                           <span>Paints & Protective Coatings</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="cladding" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="cladding" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(7)} 
+                              else {removeProductCategory(7)}
+                            }}
+                          />
                           <span>Cladding</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="processed_wood" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="processed_wood" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(8)} 
+                              else {removeProductCategory(8)}
+                            }}
+                          />
                           <span>Processed Wood</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="roofing" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="roofing" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(9)} 
+                              else {removeProductCategory(9)}
+                            }}
+                          />
                           <span>Roofing</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="door_windows" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="door_windows" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(10)} 
+                              else {removeProductCategory(10)}
+                            }}
+                          />
                           <span>Door & Windows</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="landscape_outdoors" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="landscape_outdoors" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(11)} 
+                              else {removeProductCategory(11)}
+                            }}
+                          />
                           <span>Landscape & Outdoors</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="furniture" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="furniture" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(12)} 
+                              else {removeProductCategory(12)}
+                            }}
+                          />
                           <span>Furniture</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="interior_finishes" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="interior_finishes" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(13)} 
+                              else {removeProductCategory(13)}
+                            }}
+                          />
                           <span>Interior & Finishes</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="building_material" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="building_material" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(14)} 
+                              else {removeProductCategory(14)}
+                            }}
+                          />
                           <span>Building Material</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="appliances" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="appliances" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(15)} 
+                              else {removeProductCategory(15)}
+                            }}
+                          />
                           <span>Appliances</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="tools_machinery" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="tools_machinery" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(16)} 
+                              else {removeProductCategory(16)}
+                            }}
+                          />
                           <span>Tools & Machinery</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="intelligent_building_digital_architecture" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="intelligent_building_digital_architecture" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(17)} 
+                              else {removeProductCategory(17)}
+                            }}
+                          />
                           <span>Intelligent Building & Digital Architecture</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="construction_chemical" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="construction_chemical" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(18)} 
+                              else {removeProductCategory(18)}
+                            }}
+                          />
                           <span>Construction Chemical</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="hse_products" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="hse_products" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(19)} 
+                              else {removeProductCategory(19)}
+                            }}
+                          />
                           <span>HSE Products</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="cement_concrete_mortar" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="cement_concrete_mortar" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(20)} 
+                              else {removeProductCategory(20)}
+                            }}
+                          />
                           <span>Cement, Concrete, Mortar</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="modular_construction_system" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="modular_construction_system" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(21)} 
+                              else {removeProductCategory(21)}
+                            }}
+                          />
                           <span>Modular Construction System</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="structural_building_products" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="structural_building_products" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(22)} 
+                              else {removeProductCategory(22)}
+                            }}
+                          />
                           <span>Structural Building Products</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="iron_steel" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="iron_steel" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(23)} 
+                              else {removeProductCategory(23)}
+                            }}
+                          />
                           <span>Iron & Steel</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="audio_visual_system" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="audio_visual_system" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(24)} 
+                              else {removeProductCategory(24)}
+                            }}
+                          />
                           <span>Audio Visual System</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="hvacr" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="hvacr" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(25)} 
+                              else {removeProductCategory(25)}
+                            }}
+                          />
                           <span>HVACR</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="security_safety" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="security_safety" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(26)} 
+                              else {removeProductCategory(26)}
+                            }}
+                          />
                           <span>Security Safety</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="fire_safety" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="fire_safety" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(27)} 
+                              else {removeProductCategory(27)}
+                            }}
+                          />
                           <span>Fire Safety</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="car_park_system" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="car_park_system" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(28)} 
+                              else {removeProductCategory(28)}
+                            }}
+                          />
                           <span>Car Park System</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="lighting" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="lighting" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(29)} 
+                              else {removeProductCategory(29)}
+                            }}
+                          />
                           <span>Lighting</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="electrical_system" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="electrical_system" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(30)} 
+                              else {removeProductCategory(30)}
+                            }}
+                          />
                           <span>Electrical System</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="plumbing_drainage_systems" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="plumbing_drainage_systems" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(31)} 
+                              else {removeProductCategory(31)}
+                            }}
+                          />
                           <span>Plumbing & Drainage Systems</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="maters_gauges_regulators" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="maters_gauges_regulators" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(32)} 
+                              else {removeProductCategory(32)}
+                            }}
+                          />
                           <span>Maters, Gauges & Regulators</span>
                       </label>
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="Accessibility" className="text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" name="productCategory" value="Accessibility" className="text-blue-600 focus:ring-blue-500"    
+                            onChange={(e)=> {
+                              if (e.target.checked) {addProductCategory(33)} 
+                              else {removeProductCategory(33)}
+                            }}
+                          />
                           <span>Accessibility</span>
                       </label>
                     </div>
                   </div>
-                : <></> }
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Desired Feature</label>
@@ -718,7 +908,11 @@ function App() {
                     </div>
                 </div>
                 <div className="py-4">
-                  <button type="button" className="font-medium w-full bg-yellow-400 text-white py-2 px-4 rounded-md shadow-sm hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  <button type="button" 
+                    className={name && name !== '' ? "font-medium w-full bg-yellow-400 text-white py-2 px-4 rounded-md shadow-sm hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                      : "font-medium w-full bg-gray-500   text-white py-2 px-4 rounded-md shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 opacity-50 cursor-not-allowed"
+                    }
+                    disabled={!name || name === ''}
                     onClick={()=> {
                       setMessage('Your request has been recorded.')
                       setseverity('success')
