@@ -1,6 +1,10 @@
 import './App.css';
 import logo from './assets/img/logo-inarcons.png'
+import Alert from '@mui/material/Alert';
 import { useState, useEffect } from 'react';
+import Snackbar from '@mui/material/Snackbar';
+import axios from 'axios';
+import * as React from 'react';
 
 function App() {
   const [areYouA, setAreYouA] = useState('professional')
@@ -11,7 +15,65 @@ function App() {
   const [domicile, setDomicile] = useState()
   const [profession, setProfression] = useState()
   const [interested, setInterested] = useState('Yes')
-  
+  const [typeOfVendor,setTypeOfVendor] = useState('')
+  const [message, setMessage] = useState()
+  const [severity, setseverity] = useState()
+  const [open, setOpen] = useState(false);
+  const [desiredfeature, setDesiredfeature] = useState([])
+
+  const handleClose = ( event, reason) => {
+    if (reason === 'clickaway') {return;}
+    setOpen(false);
+  };
+
+  const addDesired = (id) => {    
+    const tempDesired =[]    
+    if (desiredfeature.length > 0) {
+      for (let i = 0; i < desiredfeature.length; i++) {
+        tempDesired.push(desiredfeature[i]);                    
+      } 
+      tempDesired.push(id)
+      setDesiredfeature(tempDesired)
+    } else {
+      setDesiredfeature([id])
+    }
+  }
+
+  const removeDesired = (id) => {    
+    let tempDesired = ''    
+    if (desiredfeature.length > 0) {
+      tempDesired = desiredfeature.filter((val)=> {
+        return id !== val
+      })
+      setDesiredfeature(tempDesired)
+    } else {
+      setDesiredfeature([])
+    }
+  }
+
+  useEffect(()=>{
+    console.log('desired', desiredfeature)
+  }, [desiredfeature])
+
+  useEffect(() => {    
+    let tempDesired = ''    
+    if (areYouA === 'professional') {
+      if (desiredfeature.length > 0) {
+        tempDesired = desiredfeature.filter((val)=> {
+          return val > 14
+        })
+        setDesiredfeature(tempDesired)
+      }
+    } else {
+      if (desiredfeature.length > 0) {
+        tempDesired = desiredfeature.filter((val)=> {
+          return val < 15
+        })
+        setDesiredfeature(tempDesired)
+      }
+    }
+  },[areYouA])
+
   return (
     <>
     <header className="bg-white shadow">
@@ -28,7 +90,7 @@ function App() {
             <p className="text-gray-600 mb-6 text-sm ">One stop shop for your building materials, professionals, and networks</p>
 
             <form action="#" method="POST" className="space-y-4 text-sm">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
                 <div className='flex space-x-4 items-start'>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Are You a</label>
                     <div className="flex space-x-4">
@@ -170,151 +232,156 @@ function App() {
                         </select>
                         </>
                       : <>
-                        <label for="typeOfVendor" class="block text-sm font-medium text-gray-700">Type of Vendor</label> 
-                        <select id="typeOfVendor" name="typeOfVendor" class="p-2 text-sm mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"> 
-                            <option value="Principal Brand Owner">Principal Brand Owner</option> 
-                            <option value="Agent">Agent</option> 
-                            <option value="Distributor">Distributor</option> 
-                            <option value='Retailer "Toko Bangunan"'>Retailer "Toko Bangunan"</option> 
-                            <option value="Sole Distributor">Sole Distributor</option> 
+                        <label htmlFor="typeOfVendor" className="block text-sm font-medium text-gray-700">Type of Vendor</label> 
+                        <select id="typeOfVendor" name="typeOfVendor" className="p-2 text-sm mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                          defaultValue={''}
+                          value={typeOfVendor}
+                          onChange={(e)=>{setTypeOfVendor(e.target.value)}}
+                        > 
+                          <option value="">Please select</option> 
+                          <option value="Principal Brand Owner">Principal Brand Owner</option> 
+                          <option value="Agent">Agent</option> 
+                          <option value="Distributor">Distributor</option> 
+                          <option value='Retailer "Toko Bangunan"'>Retailer "Toko Bangunan"</option> 
+                          <option value="Sole Distributor">Sole Distributor</option> 
                         </select> 
                         </> }
                     </div>
                 </div>
                 {areYouA === 'brands' ?
-                  <div class="py-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Product Category</label>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="bathrooms" class="text-blue-600 focus:ring-blue-500" />
+                  <div className="py-4">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Product Category</label>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="bathrooms" className="text-blue-600 focus:ring-blue-500" />
                           <span>Bathrooms</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="kitchens" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="kitchens" className="text-blue-600 focus:ring-blue-500" />
                           <span>Kitchens</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="floorings" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="floorings" className="text-blue-600 focus:ring-blue-500" />
                           <span>Floorings</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="ceilings" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="ceilings" className="text-blue-600 focus:ring-blue-500" />
                           <span>Ceilings</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="wall_partitions" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="wall_partitions" className="text-blue-600 focus:ring-blue-500" />
                           <span>Wall & Partitions</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="paints_protective_coatings" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="paints_protective_coatings" className="text-blue-600 focus:ring-blue-500" />
                           <span>Paints & Protective Coatings</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="cladding" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="cladding" className="text-blue-600 focus:ring-blue-500" />
                           <span>Cladding</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="processed_wood" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="processed_wood" className="text-blue-600 focus:ring-blue-500" />
                           <span>Processed Wood</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="roofing" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="roofing" className="text-blue-600 focus:ring-blue-500" />
                           <span>Roofing</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="door_windows" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="door_windows" className="text-blue-600 focus:ring-blue-500" />
                           <span>Door & Windows</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="landscape_outdoors" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="landscape_outdoors" className="text-blue-600 focus:ring-blue-500" />
                           <span>Landscape & Outdoors</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="furniture" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="furniture" className="text-blue-600 focus:ring-blue-500" />
                           <span>Furniture</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="interior_finishes" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="interior_finishes" className="text-blue-600 focus:ring-blue-500" />
                           <span>Interior & Finishes</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="building_material" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="building_material" className="text-blue-600 focus:ring-blue-500" />
                           <span>Building Material</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="appliances" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="appliances" className="text-blue-600 focus:ring-blue-500" />
                           <span>Appliances</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="tools_machinery" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="tools_machinery" className="text-blue-600 focus:ring-blue-500" />
                           <span>Tools & Machinery</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="intelligent_building_digital_architecture" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="intelligent_building_digital_architecture" className="text-blue-600 focus:ring-blue-500" />
                           <span>Intelligent Building & Digital Architecture</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="construction_chemical" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="construction_chemical" className="text-blue-600 focus:ring-blue-500" />
                           <span>Construction Chemical</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="hse_products" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="hse_products" className="text-blue-600 focus:ring-blue-500" />
                           <span>HSE Products</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="cement_concrete_mortar" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="cement_concrete_mortar" className="text-blue-600 focus:ring-blue-500" />
                           <span>Cement, Concrete, Mortar</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="modular_construction_system" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="modular_construction_system" className="text-blue-600 focus:ring-blue-500" />
                           <span>Modular Construction System</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="structural_building_products" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="structural_building_products" className="text-blue-600 focus:ring-blue-500" />
                           <span>Structural Building Products</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="iron_steel" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="iron_steel" className="text-blue-600 focus:ring-blue-500" />
                           <span>Iron & Steel</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="audio_visual_system" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="audio_visual_system" className="text-blue-600 focus:ring-blue-500" />
                           <span>Audio Visual System</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="hvacr" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="hvacr" className="text-blue-600 focus:ring-blue-500" />
                           <span>HVACR</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="security_safety" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="security_safety" className="text-blue-600 focus:ring-blue-500" />
                           <span>Security Safety</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="fire_safety" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="fire_safety" className="text-blue-600 focus:ring-blue-500" />
                           <span>Fire Safety</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="car_park_system" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="car_park_system" className="text-blue-600 focus:ring-blue-500" />
                           <span>Car Park System</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="lighting" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="lighting" className="text-blue-600 focus:ring-blue-500" />
                           <span>Lighting</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="electrical_system" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="electrical_system" className="text-blue-600 focus:ring-blue-500" />
                           <span>Electrical System</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="plumbing_drainage_systems" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="plumbing_drainage_systems" className="text-blue-600 focus:ring-blue-500" />
                           <span>Plumbing & Drainage Systems</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="maters_gauges_regulators" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="maters_gauges_regulators" className="text-blue-600 focus:ring-blue-500" />
                           <span>Maters, Gauges & Regulators</span>
                       </label>
-                      <label class="flex items-center space-x-2">
-                          <input type="checkbox" name="product_category" value="Accessibility" class="text-blue-600 focus:ring-blue-500" />
+                      <label className="flex items-center space-x-2">
+                          <input type="checkbox" name="product_category" value="Accessibility" className="text-blue-600 focus:ring-blue-500" />
                           <span>Accessibility</span>
                       </label>
                     </div>
@@ -326,130 +393,285 @@ function App() {
                     {areYouA === 'professional' ? 
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="company-profile-landing-page" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="company-profile-landing-page" className="text-blue-600 focus:ring-blue-500" 
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(15)} 
+                                  else {removeDesired(15)}
+                                }}
+                              />
                               <span>Company Profile Landing Page</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="project-portfolio" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="project-portfolio" className="text-blue-600 focus:ring-blue-500" 
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(16)} 
+                                  else {removeDesired(16)}
+                                }}
+                              />
                               <span>Project Portfolio</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="specification-sheets" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="specification-sheets" className="text-blue-600 focus:ring-blue-500" 
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(17)} 
+                                  else {removeDesired(17)}
+                                }}
+                              />
                               <span>Specification Sheets</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="material-search" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="material-search" className="text-blue-600 focus:ring-blue-500" 
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(18)} 
+                                  else {removeDesired(18)}
+                                }}
+                              />
                               <span>Material Search</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="material-comparison" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="material-comparison" className="text-blue-600 focus:ring-blue-500" 
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(19)} 
+                                  else {removeDesired(19)}
+                                }}
+                              />
                               <span>Material Comparison</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="search-for-suppliers" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="search-for-suppliers" className="text-blue-600 focus:ring-blue-500" 
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(20)} 
+                                  else {removeDesired(20)}
+                                }}
+                              />
                               <span>Search for Suppliers</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="publish-purchase-order" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="publish-purchase-order" className="text-blue-600 focus:ring-blue-500" 
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(21)} 
+                                  else {removeDesired(21)}
+                                }}
+                              />
                               <span>Publish Purchase Order</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="publish-budget-estimate-plan" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="publish-budget-estimate-plan" className="text-blue-600 focus:ring-blue-500" 
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(22)} 
+                                  else {removeDesired(22)}
+                                }}
+                              />
                               <span>Publish Budget Estimate Plan "RAB"</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="publish-tender" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="publish-tender" className="text-blue-600 focus:ring-blue-500" 
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(23)} 
+                                  else {removeDesired(23)}
+                                }}
+                              />
                               <span>Publish Tender</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="request-for-quotation" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="request-for-quotation" className="text-blue-600 focus:ring-blue-500" 
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(24)} 
+                                  else {removeDesired(24)}
+                                }}
+                              />
                               <span>Request for Quotation</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="request-for-brochure" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="request-for-brochure" className="text-blue-600 focus:ring-blue-500" 
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(25)} 
+                                  else {removeDesired(25)}
+                                }}
+                              />
                               <span>Request for Brochure, eCatalogue</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="request-for-drawing-files" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="request-for-drawing-files" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(26)} 
+                                  else {removeDesired(26)}
+                                }}
+                              />
                               <span>Request for Drawing Files</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="request-for-sample" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="request-for-sample" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(27)} 
+                                  else {removeDesired(27)}
+                                }}
+                              />
                               <span>Request for Sample</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="request-for-meeting" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="request-for-meeting" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(28)} 
+                                  else {removeDesired(28)}
+                                }}
+                              />
                               <span>Request for Meeting</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="meet-supplier-online" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="meet-supplier-online" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(29)} 
+                                  else {removeDesired(29)}
+                                }}
+                              />
                               <span>Meet Supplier Online</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="location-matchmaking" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="location-matchmaking" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(30)} 
+                                  else {removeDesired(30)}
+                                }}
+                              />
                               <span>Location Matchmaking</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="design-folder" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="design-folder" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(31)} 
+                                  else {removeDesired(31)}
+                                }}
+                              />
                               <span>Design Folder</span>
                           </label>
                           <label className="flex items-center space-x-2">
-                              <input type="checkbox" name="feature[]" value="material-calculator" className="text-blue-600 focus:ring-blue-500" />
+                              <input type="checkbox" name="feature[]" value="material-calculator" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(32)} 
+                                  else {removeDesired(32)}
+                                }}
+                              />
                               <span>Material Calculator</span>
                           </label>
                       </div>
                     : 
-                      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox" name="feature[]" value="Product-Showcase" class="text-blue-600 focus:ring-blue-500" />
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" name="feature[]" value="Product-Showcase" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(2)} 
+                                  else {removeDesired(2)}
+                                }}
+                              />
                             <span>Product Showcase</span>
                         </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox" name="feature[]" value="Holding-Company-Account" class="text-blue-600 focus:ring-blue-500" />
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" name="feature[]" value="Holding-Company-Account" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(3)} 
+                                  else {removeDesired(3)}
+                                }}
+                              />
                             <span>Holding Company Account</span>
                         </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox" name="feature[]" value="Location-Matchmaking" class="text-blue-600 focus:ring-blue-500" />
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" name="feature[]" value="Location-Matchmaking" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(4)} 
+                                  else {removeDesired(4)}
+                                }}
+                              />
                             <span>Location Matchmaking</span>
                         </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox" name="feature[]" value="Admin-Brand-Account" class="text-blue-600 focus:ring-blue-500" />
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" name="feature[]" value="Admin-Brand-Account" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(5)} 
+                                  else {removeDesired(5)}
+                                }}
+                              />
                             <span>Admin Brand Account</span>
                         </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox" name="feature[]" value="Material-Calculator" class="text-blue-600 focus:ring-blue-500" />
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" name="feature[]" value="Material-Calculator" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(6)} 
+                                  else {removeDesired(6)}
+                                }}
+                              />
                             <span>Material Calculator</span>
                         </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox" name="feature[]" value="Upload-CAD-PDF-BIM-Files" class="text-blue-600 focus:ring-blue-500" />
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" name="feature[]" value="Upload-CAD-PDF-BIM-Files" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(7)} 
+                                  else {removeDesired(7)}
+                                }}
+                              />
                             <span>Upload CAD, PDF, BIM Files</span>
                         </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox" name="feature[]" value="Live-Online-Meeting" class="text-blue-600 focus:ring-blue-500" />
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" name="feature[]" value="Live-Online-Meeting" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(8)} 
+                                  else {removeDesired(8)}
+                                }}
+                              />
                             <span>Live Online Meeting</span>
                         </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox" name="feature[]" value="Order-List" class="text-blue-600 focus:ring-blue-500" />
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" name="feature[]" value="Order-List" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(9)} 
+                                  else {removeDesired(9)}
+                                }}
+                              />
                             <span>Order List</span>
                         </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox" name="feature[]" value="Address-Book" class="text-blue-600 focus:ring-blue-500" />
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" name="feature[]" value="Address-Book" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(10)} 
+                                  else {removeDesired(10)}
+                                }}
+                              />
                             <span>Address Book</span>
                         </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox" name="feature[]" value="Match-Making" class="text-blue-600 focus:ring-blue-500" />
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" name="feature[]" value="Match-Making" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(11)} 
+                                  else {removeDesired(11)}
+                                }}
+                              />
                             <span>Match Making</span>
                         </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox" name="feature[]" value="Questionnaire" class="text-blue-600 focus:ring-blue-500" />
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" name="feature[]" value="Questionnaire" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(12)} 
+                                  else {removeDesired(12)}
+                                }}
+                              />
                             <span>Questionnaire</span>
                         </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox" name="feature[]" value="Voucher-Validator" class="text-blue-600 focus:ring-blue-500" />
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" name="feature[]" value="Voucher-Validator" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(13)} 
+                                  else {removeDesired(13)}
+                                }}
+                              />
                             <span>Voucher Validator</span>
                         </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox" name="feature[]" value="POS" class="text-blue-600 focus:ring-blue-500" />
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" name="feature[]" value="POS" className="text-blue-600 focus:ring-blue-500"  
+                                onChange={(e)=> {
+                                  if (e.target.checked) {addDesired(15)} 
+                                  else {removeDesired(15)}
+                                }}
+                              />
                             <span>POS</span>
                         </label>
                       </div>
@@ -476,11 +698,31 @@ function App() {
                     </div>
                 </div>
                 <div className="py-4">
-                    <button type="submit" className="font-medium w-full bg-yellow-400 text-white py-2 px-4 rounded-md shadow-sm hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Join Inarcons</button>
+                  <button type="button" className="font-medium w-full bg-yellow-400 text-white py-2 px-4 rounded-md shadow-sm hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    onClick={()=> {
+                      setMessage('Your request has been recorded.')
+                      setseverity('success')
+                      setOpen(true);
+                    }}
+                  >Join Inarcons</button>
                 </div>
             </form>
         </div>
     </div>
+              
+    <Snackbar open={open} autoHideDuration={severity === 'error'? 20000 : 6000} onClose={handleClose}
+      anchorOrigin={{ vertical: 'top', horizontal:'right' }}
+    >
+      <Alert
+        onClose={handleClose}
+        severity={severity}
+        variant="filled"
+        sx={{ width: '100%', bgcolor: '#388e3c', color : "white" }}
+        color={severity === 'error' ? 'red' : "green"}
+      >
+        {message}
+      </Alert>
+    </Snackbar>
     </>
   );
 }
