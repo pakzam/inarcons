@@ -164,7 +164,7 @@ function App() {
                 </div>
                 <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-                    <input type="text" id="name" name="name" className="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    <input type="text" id="name" name="name" className="border p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
                       value={name}
                       onChange={(e)=>{setName(e.target.value)}}
                     />
@@ -174,13 +174,13 @@ function App() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
                     <div>
                         <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">Company Name <span className="font-normal">(as per NPWP)</span></label>
-                        <input type="text" id="companyName" name="companyName" className="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        <input type="text" id="companyName" name="companyName" className="border p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
                           value={companyName} onChange={(e)=>{setCompanyName(e.target.value)}}
                         />
                     </div>
                     <div>
                         <label htmlFor="brand" className="block text-sm font-medium text-gray-700">Brand <span className="font-normal">(insert comma if multiple)</span></label>
-                        <textarea type="text" id="brand" name="brand" className="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" 
+                        <textarea type="text" id="brand" name="brand" className="border p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" 
                           value={brand} onChange={(e)=>{setBrand(e.target.value)}}
                         />
                     </div>
@@ -189,14 +189,14 @@ function App() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
                     <div>
                         <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700">WhatsApp Number</label>
-                        <input type="tel" id="whatsapp" name="whatsapp" className="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" 
+                        <input type="tel" id="whatsapp" name="whatsapp" className="border p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" 
                           value={whatsapp} onChange={(e)=>{setWhatsapp(e.target.value)}}
                         />
                     </div>
 
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">E-mail</label>
-                        <input type="email" id="email" name="email" className="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" 
+                        <input type="email" id="email" name="email" className="border p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" 
                           value={email} onChange={(e)=>{setEmail(e.target.value)}}
                         />
                     </div>
@@ -205,7 +205,7 @@ function App() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
                     <div>
                         <label htmlFor="domicile" className="block text-sm font-medium text-gray-700" >Domicile</label>
-                        <select id="domicile"  name="domicile" className="p-2 mt-1 w-full border-gray-300 rounded-md shadow-sm text-sm "
+                        <select id="domicile"  name="domicile" className="border p-2 mt-1 w-full border-gray-300 rounded-md shadow-sm text-sm "
                           onChange={(e)=>{ setDomicile(e.target.value) }}
                           value={domicile}
                           defaultValue={''}
@@ -255,7 +255,7 @@ function App() {
                       {areYouA === 'professional' ?
                         <>
                         <label htmlFor="profession" className="block text-sm font-medium text-gray-700">Profession</label>
-                        <select id="profession" name="profession" className="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm text-sm focus:border-blue-500 focus:ring-blue-500"
+                        <select id="profession" name="profession" className="border p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm text-sm focus:border-blue-500 focus:ring-blue-500"
                           value={profession}
                           onChange={(e)=>{setProfression(e.target.value)}}
                           defaultValue={''}
@@ -287,7 +287,7 @@ function App() {
                         </>
                       : <>
                         <label htmlFor="typeOfVendor" className="block text-sm font-medium text-gray-700">Type of Vendor</label> 
-                        <select id="typeOfVendor" name="typeOfVendor" className="p-2 text-sm mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        <select id="typeOfVendor" name="typeOfVendor" className="border p-2 text-sm mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
                           defaultValue={''}
                           value={typeOfVendor}
                           onChange={(e)=>{setTypeOfVendor(e.target.value)}}
@@ -942,10 +942,12 @@ function App() {
                         domicile: domicile,
                         profession: profession,
                         typeOfVendor: typeOfVendor,
-                        interested: interested
+                        interested: interested === 'Not'? 0 : 1,
+                        desiredfeature: desiredfeature,
+                        productCategory: productCategory
                       })
-                      /*
-                      const {data} = await axios.post('http://localhost:8000/', {
+                     
+                      const {data} = await axios.post('https://inarconsapi.indomaber.com/earlyaccess', {
                         areYouA: areYouA,
                         name: name,
                         companyName: companyName,
@@ -955,13 +957,16 @@ function App() {
                         domicile: domicile,
                         profession: profession,
                         typeOfVendor: typeOfVendor,
-                        interested: interested
+                        interested: interested === 'Not'? 0 : 1,
+                        desiredfeature: desiredfeature,
+                        productCategory: productCategory
                       }, {
                         headers: {
                           'Content-Type': 'application/x-www-form-urlencoded'
                         }
                       })
                       if (data) {
+                        console.log(data)
                         if (data?.sqlMessage) {
                           setMessage(data.sqlMessage)
                           setseverity('error')
@@ -971,7 +976,7 @@ function App() {
                         }
                         setOpen(true);
                       }
-                      */
+                      
                     }}
                   >Join Inarcons</button>
                 </div>

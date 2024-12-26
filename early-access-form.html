@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +42,7 @@
                 <!-- Name -->
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                    <input type="text" id="name" name="name" class="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <input type="text" id="name" name="name" class="p-2 mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
             </div>
 
@@ -51,13 +50,13 @@
                 <!-- Company Name -->
                 <div>
                     <label for="company-name" class="block text-sm font-medium text-gray-700">Company Name <span class="font-normal">(as per NPWP)</span></label>
-                    <input type="text" id="company-name" name="company-name" class="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <input type="text" id="company-name" name="company-name" class="border p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
                 <!-- Brand -->
                 <div>
                     <label for="brand" class="block text-sm font-medium text-gray-700">Brand <span class="font-normal">(insert comma if multiple)</span></label>
-                    <textarea id="brand" name="brand" rows="1" class="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+                    <textarea id="brand" name="brand" rows="1" class="border p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
                 </div>                  
             </div>
 
@@ -65,13 +64,13 @@
                 <!-- WhatsApp Number -->
                 <div>
                     <label for="whatsapp-number" class="block text-sm font-medium text-gray-700">WhatsApp Number</label>
-                    <input type="text" id="whatsapp-number" name="whatsapp-number" class="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <input type="text" id="whatsapp-number" name="whatsapp-number" class="border p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
                 <!-- Email -->
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
-                    <input type="email" id="email" name="email" class="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <input type="email" id="email" name="email" class="border p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
             </div>
 
@@ -79,7 +78,7 @@
                 <!-- Domicile -->
                 <div>
                     <label for="domicile" class="block text-sm font-medium text-gray-700" >Domicile</label>
-                    <select id="domicile" name="domicile" class="p-2 mt-1 w-full border-gray-300 rounded-md shadow-sm text-sm ">
+                    <select id="domicile" name="domicile" class="border p-2 mt-1 w-full border-gray-300 rounded-md shadow-sm text-sm ">
                     <option value="">Select Provinces</option>
                     <option value="aceh">Aceh</option>
                     <option value="sumatera-utara">Sumatera Utara</option>
@@ -124,263 +123,7 @@
                 <!-- Profession Dropdown -->
                 <div>
                     <label for="profession" class="block text-sm font-medium text-gray-700">Profession</label>
-                    <select id="profession" name="profession" class="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm text-sm focus:border-blue-500 focus:ring-blue-500">
-                    <option value="principal_brand">Principal Brand</option>
-                    <option value="distributors">Distributors</option>
-                    <option value="manufactures">Manufactures</option>
-                    <option value="purchasing">Purchasing</option>
-                    <option value="architecture_consultant">Architecture Consultant</option>
-                    <option value="contractor">Contractor</option>
-                    <option value="designer_interior">Designer Interior</option>
-                    <option value="project_owner">Project Owner</option>
-                    <option value="sales_business_development">Sales & Business Development</option>
-                    <option value="property_developers">Property Developers</option>
-                    <option value="mep_consultant">MEP Consultant</option>
-                    <option value="structural_consultant">Structural Consultant</option>
-                    <option value="engineers">Engineers</option>
-                    <option value="building_management">Building Management</option>
-                    <option value="finance_accounting">Finance & Accounting</option>
-                    <option value="research_development">Research & Development</option>
-                    <option value="exporters_importers">Exporters & Importers</option>
-                    <option value="government">Government</option>
-                    <option value="association">Association</option>
-                    <option value="investors">Investors</option>
-                    <option value="students">Students</option>
-                    <option value="academician">Academician</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Desired Feature --> 
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Desired Feature</label>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="company-profile-landing-page" class="text-blue-600 focus:ring-blue-500">
-                        <span>Company Profile Landing Page</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="project-portfolio" class="text-blue-600 focus:ring-blue-500">
-                        <span>Project Portfolio</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="specification-sheets" class="text-blue-600 focus:ring-blue-500">
-                        <span>Specification Sheets</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="material-search" class="text-blue-600 focus:ring-blue-500">
-                        <span>Material Search</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="material-comparison" class="text-blue-600 focus:ring-blue-500">
-                        <span>Material Comparison</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="search-for-suppliers" class="text-blue-600 focus:ring-blue-500">
-                        <span>Search for Suppliers</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="publish-purchase-order" class="text-blue-600 focus:ring-blue-500">
-                        <span>Publish Purchase Order</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="publish-budget-estimate-plan" class="text-blue-600 focus:ring-blue-500">
-                        <span>Publish Budget Estimate Plan "RAB"</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="publish-tender" class="text-blue-600 focus:ring-blue-500">
-                        <span>Publish Tender</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="request-for-quotation" class="text-blue-600 focus:ring-blue-500">
-                        <span>Request for Quotation</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="request-for-brochure" class="text-blue-600 focus:ring-blue-500">
-                        <span>Request for Brochure, eCatalogue</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="request-for-drawing-files" class="text-blue-600 focus:ring-blue-500">
-                        <span>Request for Drawing Files</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="request-for-sample" class="text-blue-600 focus:ring-blue-500">
-                        <span>Request for Sample</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="request-for-meeting" class="text-blue-600 focus:ring-blue-500">
-                        <span>Request for Meeting</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="meet-supplier-online" class="text-blue-600 focus:ring-blue-500">
-                        <span>Meet Supplier Online</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="location-matchmaking" class="text-blue-600 focus:ring-blue-500">
-                        <span>Location Matchmaking</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="design-folder" class="text-blue-600 focus:ring-blue-500">
-                        <span>Design Folder</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="feature[]" value="material-calculator" class="text-blue-600 focus:ring-blue-500">
-                        <span>Material Calculator</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Early Access -->
-            <div class="py-4 flex space-x-4">
-                <label class="block text-sm font-medium text-gray-700 mb-2">Interested to receive early access <span class="font-normal">(Free Premium with incentives)</span>?</label>
-                <div class="flex space-x-4">
-                <div>
-                    <input type="radio" id="earlyAccessYes" name="earlyAccess" value="yes">
-                    <label for="earlyAccessYes"> Yes</label>
-                </div>
-                <div>
-                    <input type="radio" id="earlyAccessNo" name="earlyAccess" value="no">
-                    <label for="earlyAccessNo"> No</label>
-                </div>
-                </div>
-            </div>
-            
-            <!-- Submit Button -->
-            <div class="py-4">
-                <button type="submit" class="font-medium w-full bg-yellow-400 text-white py-2 px-4 rounded-md shadow-sm hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Join Inarcons</button>
-            </div>
-        </form>
-    </div>
-    </div>
-</body>
-</html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inarcons Form</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body class="bg-gray-100">
-    <!-- Header Section -->
-    <header class="bg-white shadow">
-        <div class="container mx-auto px-4 py-4 flex items-center">
-        <a href=""><img src="inarcons-logo.png" alt="Logo" class="h-14 p-2"></a>
-        <div class="ml-auto">
-            <button class="font-medium bg-yellow-400 text-white py-2 px-4 rounded hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"> Login </button>
-        </div>
-        </div>
-    </header>
-    <div class=" min-h-screen flex items-center justify-center">
-    <div class="bg-white shadow-lg rounded-lg mt-10 mb-10 p-8 w-full  max-w-6xl">
-        <h1 class="text-2xl font-medium mb-4">Welcome to Inarcons</h1>
-        <p class="text-gray-600 mb-6 text-sm ">One stop shop for your building materials, professionals, and networks</p>
-
-        <form action="#" method="POST" class="space-y-4 text-sm">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
-                <!-- Role Selection -->
-                <div class="flex space-x-4 items-start">
-                    <label class="block text-sm font-medium text-gray-700">Are You a</label>
-                    <div class="flex space-x-4">
-                        <label class="flex items-center space-x-2">
-                            <input type="radio" name="role" value="professional" class="text-blue-600 focus:ring-blue-500">
-                            <span>Professional</span>
-                        </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="radio" name="role" value="brands" class="text-blue-600 focus:ring-blue-500">
-                            <span>Brands</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Name -->
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                    <input type="text" id="name" name="name" class="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
-                <!-- Company Name -->
-                <div>
-                    <label for="company-name" class="block text-sm font-medium text-gray-700">Company Name <span class="font-normal">(as per NPWP)</span></label>
-                    <input type="text" id="company-name" name="company-name" class="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                </div>
-
-                <!-- Brand -->
-                <div>
-                    <label for="brand" class="block text-sm font-medium text-gray-700">Brand <span class="font-normal">(insert comma if multiple)</span></label>
-                    <textarea id="brand" name="brand" rows="1" class="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
-                </div>                  
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
-                <!-- WhatsApp Number -->
-                <div>
-                    <label for="whatsapp-number" class="block text-sm font-medium text-gray-700">WhatsApp Number</label>
-                    <input type="text" id="whatsapp-number" name="whatsapp-number" class="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                </div>
-
-                <!-- Email -->
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
-                    <input type="email" id="email" name="email" class="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
-                <!-- Domicile -->
-                <div>
-                    <label for="domicile" class="block text-sm font-medium text-gray-700" >Domicile</label>
-                    <select id="domicile" name="domicile" class="p-2 mt-1 w-full border-gray-300 rounded-md shadow-sm text-sm ">
-                    <option value="">Select Provinces</option>
-                    <option value="aceh">Aceh</option>
-                    <option value="sumatera-utara">Sumatera Utara</option>
-                    <option value="sumatera-barat">Sumatera Barat</option>
-                    <option value="riau">Riau</option>
-                    <option value="kepulauan-riau">Kepulauan Riau</option>
-                    <option value="jambi">Jambi</option>
-                    <option value="sumatera-selatan">Sumatera Selatan</option>
-                    <option value="bengkulu">Bengkulu</option>
-                    <option value="lampung">Lampung</option>
-                    <option value="bangka-belitung">Kepulauan Bangka Belitung</option>
-                    <option value="jakarta">Jakarta</option>
-                    <option value="jawa-barat">Jawa Barat</option>
-                    <option value="jawa-tengah">Jawa Tengah</option>
-                    <option value="yogyakarta">DI Yogyakarta</option>
-                    <option value="jawa-timur">Jawa Timur</option>
-                    <option value="banten">Banten</option>
-                    <option value="bali">Bali</option>
-                    <option value="nusa-tenggara-barat">Nusa Tenggara Barat</option>
-                    <option value="nusa-tenggara-timur">Nusa Tenggara Timur</option>
-                    <option value="kalimantan-barat">Kalimantan Barat</option>
-                    <option value="kalimantan-tengah">Kalimantan Tengah</option>
-                    <option value="kalimantan-selatan">Kalimantan Selatan</option>
-                    <option value="kalimantan-timur">Kalimantan Timur</option>
-                    <option value="kalimantan-utara">Kalimantan Utara</option>
-                    <option value="sulawesi-utara">Sulawesi Utara</option>
-                    <option value="sulawesi-tengah">Sulawesi Tengah</option>
-                    <option value="sulawesi-selatan">Sulawesi Selatan</option>
-                    <option value="sulawesi-tenggara">Sulawesi Tenggara</option>
-                    <option value="gorontalo">Gorontalo</option>
-                    <option value="sulawesi-barat">Sulawesi Barat</option>
-                    <option value="maluku">Maluku</option>
-                    <option value="maluku-utara">Maluku Utara</option>
-                    <option value="papua">Papua</option>
-                    <option value="papua-barat">Papua Barat</option>
-                    <option value="papua-selatan">Papua Selatan</option>
-                    <option value="papua-tengah">Papua Tengah</option>
-                    <option value="papua-pegunungan">Papua Pegunungan</option>
-                    </select>          
-                </div>
-
-                <!-- Profession Dropdown -->
-                <div>
-                    <label for="profession" class="block text-sm font-medium text-gray-700">Profession</label>
-                    <select id="profession" name="profession" class="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm text-sm focus:border-blue-500 focus:ring-blue-500">
+                    <select id="profession" name="profession" class="border p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm text-sm focus:border-blue-500 focus:ring-blue-500">
                     <option value="principal_brand">Principal Brand</option>
                     <option value="distributors">Distributors</option>
                     <option value="manufactures">Manufactures</option>
@@ -514,4 +257,3 @@
     </div>
 </body>
 </html>
->>>>>>> c7f68eabcbbe0aca1bc46381f6017284648e47fc
