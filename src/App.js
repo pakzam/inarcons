@@ -13,6 +13,7 @@ function App() {
   const [whatsapp, setWhatsapp] = useState()
   const [domicile, setDomicile] = useState()
   const [profession, setProfression] = useState()
+  const [email, setEmail] = useState()
   const [interested, setInterested] = useState('Yes')
   const [typeOfVendor,setTypeOfVendor] = useState('')
   const [message, setMessage] = useState()
@@ -77,6 +78,10 @@ function App() {
   }
 
   useEffect(()=>{
+    console.log('productCategory', productCategory)
+  }, [productCategory])
+
+  useEffect(()=>{
     console.log('desired', desiredfeature)
   }, [desiredfeature])
 
@@ -93,6 +98,11 @@ function App() {
         })
         setDesiredfeature(tempDesired)
       }
+      const brandsProductCategory = document.getElementsByName('productCategory')  
+      brandsProductCategory.forEach((val,id)=> {
+        brandsProductCategory[id].checked = false
+      }) 
+      setProductCategory([])
     } else {
       const profesionalDesiredFeature = document.getElementsByName('profesionalDesiredFeature')  
       profesionalDesiredFeature.forEach((val,id)=> {
@@ -133,14 +143,20 @@ function App() {
                         <label className="flex items-center space-x-2">
                             <input type="radio" name="areYouA" value="professional" className="text-blue-600 focus:ring-blue-500"
                               checked={areYouA === 'professional' ? true : false}
-                              onChange={()=>{setAreYouA('professional')}}
+                              onChange={()=>{
+                                setAreYouA('professional') 
+                                setTypeOfVendor('')
+                              }}
                             />
                             <span>Professional</span>
                         </label>
                         <label className="flex items-center space-x-2">
                             <input type="radio" name="areYouA" value="brands" className="text-blue-600 focus:ring-blue-500" 
                               checked={areYouA === 'brands' ? true : false}
-                              onChange={()=>{setAreYouA('brands')}}
+                              onChange={()=>{
+                                setAreYouA('brands')
+                                setProfression('')
+                              }}
                             />
                             <span>Brands</span>
                         </label>
@@ -180,7 +196,9 @@ function App() {
 
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">E-mail</label>
-                        <input type="email" id="email" name="email" className="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+                        <input type="email" id="email" name="email" className="p-2 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" 
+                          value={email} onChange={(e)=>{setEmail(e.target.value)}}
+                        />
                     </div>
                 </div>
 
@@ -913,10 +931,47 @@ function App() {
                       : "font-medium w-full bg-gray-500   text-white py-2 px-4 rounded-md shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 opacity-50 cursor-not-allowed"
                     }
                     disabled={!name || name === ''}
-                    onClick={()=> {
-                      setMessage('Your request has been recorded.')
-                      setseverity('success')
-                      setOpen(true);
+                    onClick={async () => {
+                      console.log({
+                        areYouA: areYouA,
+                        name: name,
+                        companyName: companyName,
+                        brand: brand,
+                        whatsapp: whatsapp,
+                        email: email,
+                        domicile: domicile,
+                        profession: profession,
+                        typeOfVendor: typeOfVendor,
+                        interested: interested
+                      })
+                      /*
+                      const {data} = await axios.post('http://localhost:8000/', {
+                        areYouA: areYouA,
+                        name: name,
+                        companyName: companyName,
+                        brand: brand,
+                        whatsapp: whatsapp,
+                        email: email,
+                        domicile: domicile,
+                        profession: profession,
+                        typeOfVendor: typeOfVendor,
+                        interested: interested
+                      }, {
+                        headers: {
+                          'Content-Type': 'application/x-www-form-urlencoded'
+                        }
+                      })
+                      if (data) {
+                        if (data?.sqlMessage) {
+                          setMessage(data.sqlMessage)
+                          setseverity('error')
+                        } else {
+                          setMessage('Data berhasil di input.')
+                          setseverity('success')
+                        }
+                        setOpen(true);
+                      }
+                      */
                     }}
                   >Join Inarcons</button>
                 </div>
