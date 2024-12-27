@@ -5,6 +5,13 @@ import { useState, useEffect } from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import axios from 'axios';
 
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
 function App() {
   const [areYouA, setAreYouA] = useState('professional')
   const [name, setName] = useState('')
@@ -21,6 +28,9 @@ function App() {
   const [open, setOpen] = useState(false);
   const [desiredfeature, setDesiredfeature] = useState([])
   const [productCategory, setProductCategory] = useState([])
+  const [openDialog, setOpenDialog] = useState(false);
+ 
+  const handleOpen = () => setOpenDialog(!openDialog);
 
   const handleClose = ( event, reason) => {
     if (reason === 'clickaway') {return;}
@@ -116,6 +126,7 @@ function App() {
       }
     }
   }
+
   useEffect(() => {    
     uncheck()
   },[areYouA])
@@ -974,7 +985,8 @@ function App() {
                           setMessage('Data berhasil di input.')
                           setseverity('success')
                         }
-                        setOpen(true);
+                        //setOpen(true);
+                        setOpenDialog(true)
                       }
                       
                     }}
@@ -983,7 +995,27 @@ function App() {
             </form>
         </div>
     </div>
-              
+    
+    <Dialog
+        open={openDialog}
+        onClose={handleOpen}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Success!"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Your data has been recorded and you will be notified when this project launches.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleOpen} autoFocus>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
     <Snackbar open={open} autoHideDuration={severity === 'error'? 20000 : 6000} onClose={handleClose}
       anchorOrigin={{ vertical: 'top', horizontal:'right' }}
     >
