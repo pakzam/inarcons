@@ -146,7 +146,7 @@
             <!-- Product Category -->
             <div class="py-4">
                 <label class="block text-sm font-medium text-gray-700 mb-2">Product Category</label>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="grid items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div class="flex-row items-center space-x-2">
                     <label class="space-x-2 pb-2 block">
                         <input type="checkbox" name="product_category" value="bathrooms" class="text-blue-600 focus:ring-blue-500">
@@ -1007,58 +1007,299 @@
                         </label>
                     </div>
                 </div>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="modular_construction_system" class="text-blue-600 focus:ring-blue-500">
-                    <span>Modular Construction System</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="structural_building_products" class="text-blue-600 focus:ring-blue-500">
-                    <span>Structural Building Products</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="iron_steel" class="text-blue-600 focus:ring-blue-500">
-                    <span>Iron & Steel</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="audio_visual_system" class="text-blue-600 focus:ring-blue-500">
-                    <span>Audio Visual System</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="hvacr" class="text-blue-600 focus:ring-blue-500">
-                    <span>HVACR</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="security_safety" class="text-blue-600 focus:ring-blue-500">
-                    <span>Security Safety</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="fire_safety" class="text-blue-600 focus:ring-blue-500">
-                    <span>Fire Safety</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="car_park_system" class="text-blue-600 focus:ring-blue-500">
-                    <span>Car Park System</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="lighting" class="text-blue-600 focus:ring-blue-500">
-                    <span>Lighting</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="electrical_system" class="text-blue-600 focus:ring-blue-500">
-                    <span>Electrical System</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="plumbing_drainage_systems" class="text-blue-600 focus:ring-blue-500">
-                    <span>Plumbing & Drainage Systems</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="maters_gauges_regulators" class="text-blue-600 focus:ring-blue-500">
-                    <span>Maters, Gauges & Regulators</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="Accessibility" class="text-blue-600 focus:ring-blue-500">
-                    <span>Accessibility</span>
-                </label>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="modular_construction_system" class="text-blue-600 focus:ring-blue-500">
+                        <span>Modular Construction System</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="pre_engineered" class="text-blue-600 focus:ring-blue-500">
+                            <span>Pre Engineered</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="pre_fabricated" class="text-blue-600 focus:ring-blue-500">
+                            <span>Pre Fabricated</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="precast_concrete" class="text-blue-600 focus:ring-blue-500">
+                            <span>Precast Concrete</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="structural_building_products" class="text-blue-600 focus:ring-blue-500">
+                        <span>Structural Building Products</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="anchor_fastener" class="text-blue-600 focus:ring-blue-500">
+                            <span>Anchor & Fastener</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="composit_bondeck" class="text-blue-600 focus:ring-blue-500">
+                            <span>Composit Bondeck</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="iron_steel" class="text-blue-600 focus:ring-blue-500">
+                        <span>Iron & Steel</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="pre_stress_steel" class="text-blue-600 focus:ring-blue-500">
+                            <span>Pre-stress Steel</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="steel_profiles_bars" class="text-blue-600 focus:ring-blue-500">
+                            <span>Steel Profiles & Bars</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="structural_steel" class="text-blue-600 focus:ring-blue-500">
+                            <span>Structural Steel</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="non_structural_steel" class="text-blue-600 focus:ring-blue-500">
+                            <span>Non-Structural Steel</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="wiremesh" class="text-blue-600 focus:ring-blue-500">
+                            <span>Wiremesh</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="steel_wire" class="text-blue-600 focus:ring-blue-500">
+                            <span>Steel Wire</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="metal_steel_aluminum" class="text-blue-600 focus:ring-blue-500">
+                            <span>Metal, Steel, Aluminum</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="audio_visual_system" class="text-blue-600 focus:ring-blue-500">
+                        <span>Audio Visual System</span>
+                    </label>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="hvacr" class="text-blue-600 focus:ring-blue-500">
+                        <span>HVACR</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="air_conditioning" class="text-blue-600 focus:ring-blue-500">
+                            <span>Air Conditioning</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="heating_system" class="text-blue-600 focus:ring-blue-500">
+                            <span>Heating System</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="air_filtration_system" class="text-blue-600 focus:ring-blue-500">
+                            <span>Air Filtration System / Air Purifier</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="humidifier_dehumidifier" class="text-blue-600 focus:ring-blue-500">
+                            <span>(Humidifier & Dehumidifier)</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="exhaust_system" class="text-blue-600 focus:ring-blue-500">
+                            <span>Exhaust System</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="ventilation_system" class="text-blue-600 focus:ring-blue-500">
+                            <span>Ventilation System</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="security_safety" class="text-blue-600 focus:ring-blue-500">
+                        <span>Security Safety</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="access_control" class="text-blue-600 focus:ring-blue-500">
+                            <span>Access Control</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="alarm_automation_systems" class="text-blue-600 focus:ring-blue-500">
+                            <span>Alarm & Automation Systems</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="fire_safety" class="text-blue-600 focus:ring-blue-500">
+                        <span>Fire Safety</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="fire_proof" class="text-blue-600 focus:ring-blue-500">
+                            <span>Fire Proof</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="fire_stop" class="text-blue-600 focus:ring-blue-500">
+                            <span>Fire Stop</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="product_category" value="car_park_system" class="text-blue-600 focus:ring-blue-500">
+                        <span>Car Park System</span>
+                    </label>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="lighting" class="text-blue-600 focus:ring-blue-500">
+                        <span>Lighting</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="decorative_lighting" class="text-blue-600 focus:ring-blue-500">
+                            <span>Decorative Lighting</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="downlights" class="text-blue-600 focus:ring-blue-500">
+                            <span>Downlights</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="floor_table_task_lighting" class="text-blue-600 focus:ring-blue-500">
+                            <span>Floor, Table & Task Lighting</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="led_lighting_products" class="text-blue-600 focus:ring-blue-500">
+                            <span>LED Lighting Products</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="lighting_control" class="text-blue-600 focus:ring-blue-500">
+                            <span>Lighting Control</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="lighting_systems" class="text-blue-600 focus:ring-blue-500">
+                            <span>Lighting Systems</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="outdoor_exterior_lighting" class="text-blue-600 focus:ring-blue-500">
+                            <span>Outdoor & Exterior Lighting</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="solar_lighting" class="text-blue-600 focus:ring-blue-500">
+                            <span>Solar Lighting</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="switches_sockets" class="text-blue-600 focus:ring-blue-500">
+                            <span>Switches & Sockets</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="wall_ceiling_lighting_fittings" class="text-blue-600 focus:ring-blue-500">
+                            <span>Wall, Ceiling Lighting & Fittings</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="electrical_system" class="text-blue-600 focus:ring-blue-500">
+                        <span>Electrical System</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="switches_sockets" class="text-blue-600 focus:ring-blue-500">
+                            <span>Switches & Sockets</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="electrical_systems" class="text-blue-600 focus:ring-blue-500">
+                            <span>Electrical Systems</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="electronic_equipment" class="text-blue-600 focus:ring-blue-500">
+                            <span>Electronic Equipment</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="electrical_installations" class="text-blue-600 focus:ring-blue-500">
+                            <span>Electrical Installations</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="solar_power_system" class="text-blue-600 focus:ring-blue-500">
+                            <span>Solar Power System</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="smart_automations" class="text-blue-600 focus:ring-blue-500">
+                            <span>Smart Automations</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="plumbing_drainage_systems" class="text-blue-600 focus:ring-blue-500">
+                        <span>Plumbing & Drainage Systems</span>
+                    </label>
+                <div class="pl-3 space-y-2">
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="product_subcategory" value="grease_trap" class="text-blue-600 focus:ring-blue-500">
+                        <span>Grease Trap</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="product_subcategory" value="water_tank" class="text-blue-600 focus:ring-blue-500">
+                        <span>Water Tank</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="product_subcategory" value="plumbing_systems" class="text-blue-600 focus:ring-blue-500">
+                        <span>Plumbing Systems</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="product_subcategory" value="water_treatment" class="text-blue-600 focus:ring-blue-500">
+                        <span>Water Treatment</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="product_subcategory" value="water_heater" class="text-blue-600 focus:ring-blue-500">
+                        <span>Water Heater</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="product_subcategory" value="water_technologies" class="text-blue-600 focus:ring-blue-500">
+                        <span>Water Technologies</span>
+                    </label>
+                </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="maters_gauges_regulators" class="text-blue-600 focus:ring-blue-500">
+                        <span>Maters, Gauges & Regulators</span>
+                    </label>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="Accessibility" class="text-blue-600 focus:ring-blue-500">
+                        <span>Accessibility</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="Lift" class="text-blue-600 focus:ring-blue-500">
+                            <span>Lift</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="Hoist" class="text-blue-600 focus:ring-blue-500">
+                            <span>Hoist</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="Elevator" class="text-blue-600 focus:ring-blue-500">
+                            <span>Elevator</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="Travelator" class="text-blue-600 focus:ring-blue-500">
+                            <span>Travelator</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="Eskalator" class="text-blue-600 focus:ring-blue-500">
+                            <span>Eskalator</span>
+                        </label>
+                    </div>
                 </div>
             </label>
             </div>
