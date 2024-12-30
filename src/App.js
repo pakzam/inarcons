@@ -28,6 +28,7 @@ function App() {
   const [open, setOpen] = useState(false);
   const [desiredfeature, setDesiredfeature] = useState([])
   const [productCategory, setProductCategory] = useState([])
+  const [subCategory, setSubCategory] = useState([])
   const [openDialog, setOpenDialog] = useState(false);
  
   const handleOpen = () => setOpenDialog(!openDialog);
@@ -84,6 +85,32 @@ function App() {
       setProductCategory(tempProductCategory)
     } else {
       setProductCategory([])
+    }
+  }
+
+  
+  const addSubCategory = (id) => {    
+    const tempSubCategory =[]    
+    if (subCategory.length > 0) {
+      for (let i = 0; i < subCategory.length; i++) {
+        tempSubCategory.push(subCategory[i]);                    
+      } 
+      tempSubCategory.push(id)
+      setSubCategory(tempSubCategory)
+    } else {
+      setSubCategory([id])
+    }
+  }
+
+  const removeSubCategory = (id) => {    
+    let tempSubCategory = ''    
+    if (subCategory.length > 0) {
+      tempSubCategory = subCategory.filter((val)=> {
+        return id !== val
+      })
+      setSubCategory(tempSubCategory)
+    } else {
+      setSubCategory([])
     }
   }
 
@@ -314,10 +341,11 @@ function App() {
                     </div>
                 </div>
                 
-                  <div className={areYouA === 'brands' ? "py-4" : "hidden" }>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Product Category</label>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                      <label className="flex items-center space-x-2">
+                <div className={areYouA === 'brands' ? "py-4" : "hidden" }>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Product Category</label>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 place-items-start">
+                    <div  className="grid grid-cols-1 ">
+                      <label className="flex items-center space-x-2 mb-1">
                           <input type="checkbox" name="productCategory" value="bathrooms" className="text-blue-600 focus:ring-blue-500"   
                             onChange={(e)=> {
                               if (e.target.checked) {addProductCategory(1)} 
@@ -326,6 +354,35 @@ function App() {
                           />
                           <span>Bathrooms</span>
                       </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subBathroom" value="Sanitary Ware" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(1)} 
+                            else {removeSubCategory(1)}
+                          }}
+                        />
+                        <span>Sanitary Ware</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subBathroom" value="Sanitary Fitting" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(2)} 
+                            else {removeSubCategory(2)}
+                          }}
+                        />
+                        <span>Sanitary Fitting</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subBathroom" value="Cubicle & Partitions" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(3)} 
+                            else {removeSubCategory(3)}
+                          }}
+                        />
+                        <span>Cubicle & Partitions</span>
+                      </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
                           <input type="checkbox" name="productCategory" value="kitchens" className="text-blue-600 focus:ring-blue-500"    
                             onChange={(e)=> {
@@ -335,6 +392,26 @@ function App() {
                           />
                           <span>Kitchens</span>
                       </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subKitchens" value="Kitchen Accessories" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(4)} 
+                            else {removeSubCategory(4)}
+                          }}
+                        />
+                        <span>Kitchen Accessories</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subKitchens" value="Appliances" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(5)} 
+                            else {removeSubCategory(5)}
+                          }}
+                        />
+                        <span>Appliances</span>
+                      </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
                           <input type="checkbox" name="productCategory" value="floorings" className="text-blue-600 focus:ring-blue-500"    
                             onChange={(e)=> {
@@ -344,6 +421,125 @@ function App() {
                           />
                           <span>Floorings</span>
                       </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subFloorings" value="Marble" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(6)} 
+                            else {removeSubCategory(6)}
+                          }}
+                        />
+                        <span>Marble</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subFloorings" value="Mosaic Tiles" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(7)} 
+                            else {removeSubCategory(7)}
+                          }}
+                        />
+                        <span>Mosaic Tiles</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subFloorings" value="Vinyl Flooring" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(8)} 
+                            else {removeSubCategory(8)}
+                          }}
+                        />
+                        <span>Vinyl Flooring</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subFloorings" value="Ceramic Tiles" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(9)} 
+                            else {removeSubCategory(9)}
+                          }}
+                        />
+                        <span>Ceramic Tiles</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subFloorings" value="Homogeneous Flooring Tiles" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(10)} 
+                            else {removeSubCategory(10)}
+                          }}
+                        />
+                        <span>Homogeneous Flooring Tiles</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subFloorings" value="Granite Flooring Tiles" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(11)} 
+                            else {removeSubCategory(11)}
+                          }}
+                        />
+                        <span>Granite Flooring Tiles</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subFloorings" value="Stone Plastic Composite Flooring" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(12)} 
+                            else {removeSubCategory(12)}
+                          }}
+                        />
+                        <span>Stone Plastic Composite Flooring</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subFloorings" value="Parquet Flooring" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(13)} 
+                            else {removeSubCategory(13)}
+                          }}
+                        />
+                        <span>Parquet Flooring</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subFloorings" value="Ceramic Tiles" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(14)} 
+                            else {removeSubCategory(14)}
+                          }}
+                        />
+                        <span>Ceramic Tiles</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subFloorings" value="Tile Grout" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(15)} 
+                            else {removeSubCategory(15)}
+                          }}
+                        />
+                        <span>Tile Grout</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subFloorings" value="Wood Plastic Composite (WPC) Flooring" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(16)} 
+                            else {removeSubCategory(16)}
+                          }}
+                        />
+                        <span>Wood Plastic Composite (WPC) Flooring</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subFloorings" value="Outdoor Floor" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(17)} 
+                            else {removeSubCategory(17)}
+                          }}
+                        />
+                        <span>Outdoor Floor</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subFloorings" value="Floor Deck System" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(18)} 
+                            else {removeSubCategory(18)}
+                          }}
+                        />
+                        <span>Floor Deck System</span>
+                      </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
                           <input type="checkbox" name="productCategory" value="ceilings" className="text-blue-600 focus:ring-blue-500"    
                             onChange={(e)=> {
@@ -353,6 +549,98 @@ function App() {
                           />
                           <span>Ceilings</span>
                       </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subCeilings" value="Plafond GRC" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(19)} 
+                            else {removeSubCategory(19)}
+                          }}
+                        />
+                        <span>Plafond GRC</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subCeilings" value="Plafond Gypsum" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(20)} 
+                            else {removeSubCategory(20)}
+                          }}
+                        />
+                        <span>Plafond Gypsum</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subCeilings" value="PVC Ceiling Panels" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(21)} 
+                            else {removeSubCategory(21)}
+                          }}
+                        />
+                        <span>PVC Ceiling Panels</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subCeilings" value="Ceiling Frame" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(22)} 
+                            else {removeSubCategory(22)}
+                          }}
+                        />
+                        <span>Ceiling Frame</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subCeilings" value="Glass Reinforced Concrete (GRC)" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(23)} 
+                            else {removeSubCategory(23)}
+                          }}
+                        />
+                        <span>Glass Reinforced Concrete (GRC)</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subCeilings" value="Gypsum Board" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(24)} 
+                            else {removeSubCategory(24)}
+                          }}
+                        />
+                        <span>Gypsum Board</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subCeilings" value="Cement Fiberboard" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(25)} 
+                            else {removeSubCategory(25)}
+                          }}
+                        />
+                        <span>Cement Fiberboard</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subCeilings" value="Acoustic Insulation / Soundproofing" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(26)} 
+                            else {removeSubCategory(26)}
+                          }}
+                        />
+                        <span>Acoustic Insulation / Soundproofing</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subCeilings" value="Corner Beads for Drywall" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(27)} 
+                            else {removeSubCategory(27)}
+                          }}
+                        />
+                        <span>Corner Beads for Drywall</span>
+                      </label>
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subCeilings" value="Fiberglass Building Materials" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(28)} 
+                            else {removeSubCategory(28)}
+                          }}
+                        />
+                        <span>Fiberglass Building Materials</span>
+                      </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
                           <input type="checkbox" name="productCategory" value="wall_partitions" className="text-blue-600 focus:ring-blue-500"    
                             onChange={(e)=> {
@@ -361,16 +649,218 @@ function App() {
                             }}
                           />
                           <span>Wall & Partitions</span>
+                      </label>                      
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subWallPartitions" value="Wall" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(29)} 
+                            else {removeSubCategory(29)}
+                          }}
+                        />
+                        <span>Wall</span>
+                      </label>                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subWallPartitions" value="Partitions" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(30)} 
+                            else {removeSubCategory(30)}
+                          }}
+                        />
+                        <span>Partitions</span>
+                      </label>                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subWallPartitions" value="Slab, Sheet, Board" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(31)} 
+                            else {removeSubCategory(31)}
+                          }}
+                        />
+                        <span>Slab, Sheet, Board</span>
+                      </label>                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subWallPartitions" value="Acoustic" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(32)} 
+                            else {removeSubCategory(32)}
+                          }}
+                        />
+                        <span>Acoustic</span>
+                      </label>                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subWallPartitions" value="Insulation & Thermal Barrier" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(33)} 
+                            else {removeSubCategory(33)}
+                          }}
+                        />
+                        <span>Insulation & Thermal Barrier</span>
+                      </label>                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subWallPartitions" value="Concrete Block" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(34)} 
+                            else {removeSubCategory(34)}
+                          }}
+                        />
+                        <span>Concrete Block</span>
+                      </label>                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subWallPartitions" value="Aerated Concrete Block" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(35)} 
+                            else {removeSubCategory(35)}
+                          }}
+                        />
+                        <span>Aerated Concrete Block</span>
+                      </label>                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subWallPartitions" value="Red Brick" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(36)} 
+                            else {removeSubCategory(36)}
+                          }}
+                        />
+                        <span>Red Brick</span>
+                      </label>                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subWallPartitions" value="Mortar" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(37)} 
+                            else {removeSubCategory(37)}
+                          }}
+                        />
+                        <span>Mortar</span>
                       </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="paints_protective_coatings" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(6)} 
-                              else {removeProductCategory(6)}
-                            }}
-                          />
-                          <span>Paints & Protective Coatings</span>
+                        <input type="checkbox" name="productCategory" value="paints_protective_coatings" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(6)} 
+                            else {removeProductCategory(6)}
+                          }}
+                        />
+                        <span>Paints & Protective Coatings</span>
+                      </label>                   
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subPaintsProtectiveCoatings" value="Floor Paint" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(38)} 
+                            else {removeSubCategory(38)}
+                          }}
+                        />
+                        <span>Floor Paint</span>
+                      </label>                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subPaintsProtectiveCoatings" value="Natural Stone Coating" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(39)} 
+                            else {removeSubCategory(39)}
+                          }}
+                        />
+                        <span>Natural Stone Coating</span>
+                      </label>                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subPaintsProtectiveCoatings" value="Metal and Iron Paint" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(40)} 
+                            else {removeSubCategory(40)}
+                          }}
+                        />
+                        <span>Metal and Iron Paint</span>
+                      </label>                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subPaintsProtectiveCoatings" value="Waterproof Coating" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(41)} 
+                            else {removeSubCategory(41)}
+                          }}
+                        />
+                        <span>Waterproof Coating</span>
+                      </label>                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subPaintsProtectiveCoatings" value="Wall Paint" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(42)} 
+                            else {removeSubCategory(42)}
+                          }}
+                        />
+                        <span>Wall Paint</span>
+                      </label>                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subPaintsProtectiveCoatings" value="Gypsum & Plasterboard Paint" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(43)} 
+                            else {removeSubCategory(43)}
+                          }}
+                        />
+                        <span>Gypsum & Plasterboard Paint</span>
+                      </label>                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subPaintsProtectiveCoatings" value="Roof Paint" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(44)} 
+                            else {removeSubCategory(44)}
+                          }}
+                        />
+                        <span>Roof Paint</span>
+                      </label>                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subPaintsProtectiveCoatings" value="Decorative Paint" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(45)} 
+                            else {removeSubCategory(45)}
+                          }}
+                        />
+                        <span>Decorative Paint</span>
+                      </label>                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subPaintsProtectiveCoatings" value="Fire-resistant Coating" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(46)} 
+                            else {removeSubCategory(46)}
+                          }}
+                        />
+                        <span>Fire-resistant Coating</span>
+                      </label>                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subPaintsProtectiveCoatings" value="Varnish & Wood Finish" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(47)} 
+                            else {removeSubCategory(47)}
+                          }}
+                        />
+                        <span>Varnish & Wood Finish</span>
+                      </label>                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subPaintsProtectiveCoatings" value="Leak-resistant Fiber" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(48)} 
+                            else {removeSubCategory(48)}
+                          }}
+                        />
+                        <span>Leak-resistant Fiber</span>
+                      </label>                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subPaintsProtectiveCoatings" value="Protective Coatings & Gloss Finish" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(49)} 
+                            else {removeSubCategory(49)}
+                          }}
+                        />
+                        <span>Protective Coatings & Gloss Finish</span>
+                      </label>                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subPaintsProtectiveCoatings" value="Plaster & Stucco" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(50)} 
+                            else {removeSubCategory(50)}
+                          }}
+                        />
+                        <span>Plaster & Stucco</span>
                       </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
                           <input type="checkbox" name="productCategory" value="cladding" className="text-blue-600 focus:ring-blue-500"    
                             onChange={(e)=> {
@@ -379,7 +869,45 @@ function App() {
                             }}
                           />
                           <span>Cladding</span>
-                      </label>
+                      </label>                                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subCladding" value="Wallpanel" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(51)} 
+                            else {removeSubCategory(51)}
+                          }}
+                        />
+                        <span>Wallpanel</span>
+                      </label>                                    
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subCladding" value="Facade" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(52)} 
+                            else {removeSubCategory(52)}
+                          }}
+                        />
+                        <span>Facade</span>
+                      </label>                                    
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subCladding" value="ACP" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(53)} 
+                            else {removeSubCategory(53)}
+                          }}
+                        />
+                        <span>ACP</span>
+                      </label>                                    
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subCladding" value="Modified Clay Material (MCM)" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(54)} 
+                            else {removeSubCategory(54)}
+                          }}
+                        />
+                        <span>Modified Clay Material (MCM)</span>
+                      </label> 
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
                           <input type="checkbox" name="productCategory" value="processed_wood" className="text-blue-600 focus:ring-blue-500"    
                             onChange={(e)=> {
@@ -388,7 +916,63 @@ function App() {
                             }}
                           />
                           <span>Processed Wood</span>
-                      </label>
+                      </label>                                   
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subProcessedWood" value="Plywood" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(55)} 
+                            else {removeSubCategory(55)}
+                          }}
+                        />
+                        <span>Plywood</span>
+                      </label>                                    
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subProcessedWood" value="Blockboard" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(56)} 
+                            else {removeSubCategory(56)}
+                          }}
+                        />
+                        <span>Blockboard</span>
+                      </label>                                    
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subProcessedWood" value="HDF / Hardboard" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(57)} 
+                            else {removeSubCategory(57)}
+                          }}
+                        />
+                        <span>HDF / Hardboard</span>
+                      </label>                                    
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subProcessedWood" value="MDF" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(58)} 
+                            else {removeSubCategory(58)}
+                          }}
+                        />
+                        <span>MDF</span>
+                      </label>                                    
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subProcessedWood" value="HMR" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(59)} 
+                            else {removeSubCategory(59)}
+                          }}
+                        />
+                        <span>HMR</span>
+                      </label>                                    
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subProcessedWood" value="LDF / Particle Board" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(60)} 
+                            else {removeSubCategory(60)}
+                          }}
+                        />
+                        <span>LDF / Particle Board</span>
+                      </label>  
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
                           <input type="checkbox" name="productCategory" value="roofing" className="text-blue-600 focus:ring-blue-500"    
                             onChange={(e)=> {
@@ -397,7 +981,216 @@ function App() {
                             }}
                           />
                           <span>Roofing</span>
-                      </label>
+                      </label>                                    
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Awning" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(61)} 
+                            else {removeSubCategory(61)}
+                          }}
+                        />
+                        <span>Awning</span>
+                      </label>                                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Gutters" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(62)} 
+                            else {removeSubCategory(62)}
+                          }}
+                        />
+                        <span>Gutters</span>
+                      </label>                                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Ridge" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(63)} 
+                            else {removeSubCategory(63)}
+                          }}
+                        />
+                        <span>Ridge</span>
+                      </label>                                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Roof Structure & Frames" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(64)} 
+                            else {removeSubCategory(64)}
+                          }}
+                        />
+                        <span>Roof Structure & Frames</span>
+                      </label>                                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Lightweight Steel Frames" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(65)} 
+                            else {removeSubCategory(65)}
+                          }}
+                        />
+                        <span>Lightweight Steel Frames</span>
+                      </label>                                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Roof Accessories" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(66)} 
+                            else {removeSubCategory(66)}
+                          }}
+                        />
+                        <span>Roof Accessories</span>
+                      </label>                                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Bitumen Roofing" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(67)} 
+                            else {removeSubCategory(67)}
+                          }}
+                        />
+                        <span>Bitumen Roofing</span>
+                      </label>                                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="uPVC Roofing" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(68)} 
+                            else {removeSubCategory(68)}
+                          }}
+                        />
+                        <span>uPVC Roofing</span>
+                      </label>                                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="PVC Structured Roofing" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(69)} 
+                            else {removeSubCategory(69)}
+                          }}
+                        />
+                        <span>PVC Structured Roofing</span>
+                      </label>                                     
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Spandex Roofing Sheets" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(70)} 
+                            else {removeSubCategory(70)}
+                          }}
+                        />
+                        <span>Spandex Roofing Sheets</span>
+                      </label>                                    
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Cement Roofing" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(71)} 
+                            else {removeSubCategory(71)}
+                          }}
+                        />
+                        <span>Cement Roofing</span>
+                      </label>                                    
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Concrete Roofing" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(72)} 
+                            else {removeSubCategory(72)}
+                          }}
+                        />
+                        <span>Concrete Roofing</span>
+                      </label>                                    
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Polycarbonate Roofing" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(73)} 
+                            else {removeSubCategory(73)}
+                          }}
+                        />
+                        <span>Polycarbonate Roofing</span>
+                      </label>                                    
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Gutter Liners" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(74)} 
+                            else {removeSubCategory(74)}
+                          }}
+                        />
+                        <span>Gutter Liners</span>
+                      </label>                                    
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Corrugated Metal Sheets" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(75)} 
+                            else {removeSubCategory(75)}
+                          }}
+                        />
+                        <span>Corrugated Metal Sheets</span>
+                      </label>                                   
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Sustainable Green Roofs" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(76)} 
+                            else {removeSubCategory(76)}
+                          }}
+                        />
+                        <span>Sustainable Green Roofs</span>
+                      </label>                                   
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Shingle Roofing" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(77)} 
+                            else {removeSubCategory(77)}
+                          }}
+                        />
+                        <span>Shingle Roofing</span>
+                      </label>                                   
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Membrane Roofing" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(78)} 
+                            else {removeSubCategory(78)}
+                          }}
+                        />
+                        <span>Membrane Roofing</span>
+                      </label>                                   
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Thatched Roofing" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(79)} 
+                            else {removeSubCategory(79)}
+                          }}
+                        />
+                        <span>Thatched Roofing</span>
+                      </label>                                   
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Fibre Cement Roofing" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(80)} 
+                            else {removeSubCategory(80)}
+                          }}
+                        />
+                        <span>Fibre Cement Roofing</span>
+                      </label>                                   
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Stone Roofing" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(81)} 
+                            else {removeSubCategory(81)}
+                          }}
+                        />
+                        <span>Stone Roofing</span>
+                      </label>                                   
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Decoration Roofing" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(82)} 
+                            else {removeSubCategory(82)}
+                          }}
+                        />
+                        <span>Decoration Roofing</span>
+                      </label>                                   
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subRoofing" value="Ceramic Roofing" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(83)} 
+                            else {removeSubCategory(83)}
+                          }}
+                        />
+                        <span>Ceramic Roofing</span>
+                      </label>    
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
                           <input type="checkbox" name="productCategory" value="door_windows" className="text-blue-600 focus:ring-blue-500"    
                             onChange={(e)=> {
@@ -406,7 +1199,162 @@ function App() {
                             }}
                           />
                           <span>Door & Windows</span>
-                      </label>
+                      </label>                                   
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="Ironmongery" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(84)} 
+                            else {removeSubCategory(84)}
+                          }}
+                        />
+                        <span>Ironmongery</span>
+                      </label>                                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="Digital Lock" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(85)} 
+                            else {removeSubCategory(85)}
+                          }}
+                        />
+                        <span>Digital Lock</span>
+                      </label>                                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="Steel Door" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(86)} 
+                            else {removeSubCategory(86)}
+                          }}
+                        />
+                        <span>Steel Door</span>
+                      </label>                                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="Wooden Door" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(87)} 
+                            else {removeSubCategory(87)}
+                          }}
+                        />
+                        <span>Wooden Door</span>
+                      </label>                                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="Shutter/Rolling Door" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(88)} 
+                            else {removeSubCategory(88)}
+                          }}
+                        />
+                        <span>Shutter/Rolling Door</span>
+                      </label>                                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="ABS Door" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(89)} 
+                            else {removeSubCategory(89)}
+                          }}
+                        />
+                        <span>ABS Door</span>
+                      </label>                                 
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="WPC Door" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(90)} 
+                            else {removeSubCategory(90)}
+                          }}
+                        />
+                        <span>WPC Door</span>
+                      </label>                                
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="PVC Door" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(91)} 
+                            else {removeSubCategory(91)}
+                          }}
+                        />
+                        <span>PVC Door</span>
+                      </label>                                
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="Aluminum Door" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(92)} 
+                            else {removeSubCategory(92)}
+                          }}
+                        />
+                        <span>Aluminum Door</span>
+                      </label>                                
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="uPVC Door" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(93)} 
+                            else {removeSubCategory(93)}
+                          }}
+                        />
+                        <span>uPVC Door</span>
+                      </label>                                
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="Engineered Door" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(94)} 
+                            else {removeSubCategory(94)}
+                          }}
+                        />
+                        <span>Engineered Door</span>
+                      </label>                                
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="Automatic Doors/Gates" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(95)} 
+                            else {removeSubCategory(95)}
+                          }}
+                        />
+                        <span>Automatic Doors/Gates</span>
+                      </label>                                
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="Folding & Sliding Doors" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(96)} 
+                            else {removeSubCategory(96)}
+                          }}
+                        />
+                        <span>Folding & Sliding Doors</span>
+                      </label>                                
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="Aluminum Profile" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(97)} 
+                            else {removeSubCategory(97)}
+                          }}
+                        />
+                        <span>Aluminum Profile</span>
+                      </label>                                
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="Glass & Glazing" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(98)} 
+                            else {removeSubCategory(98)}
+                          }}
+                        />
+                        <span>Glass & Glazing</span>
+                      </label>                                
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="Windows & Fittings" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(99)} 
+                            else {removeSubCategory(99)}
+                          }}
+                        />
+                        <span>Windows & Fittings</span>
+                      </label>                               
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subDoorWindows" value="Windows & Accessories" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(100)} 
+                            else {removeSubCategory(100)}
+                          }}
+                        />
+                        <span>Windows & Accessories</span>
+                      </label>   
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
                           <input type="checkbox" name="productCategory" value="landscape_outdoors" className="text-blue-600 focus:ring-blue-500"    
                             onChange={(e)=> {
@@ -415,207 +1363,315 @@ function App() {
                             }}
                           />
                           <span>Landscape & Outdoors</span>
-                      </label>
+                      </label>                             
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subLandscapeOutdoors" value="Garages & Fencing" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(101)} 
+                            else {removeSubCategory(101)}
+                          }}
+                        />
+                        <span>Garages & Fencing</span>
+                      </label>                             
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subLandscapeOutdoors" value="Paving & Decking" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(102)} 
+                            else {removeSubCategory(102)}
+                          }}
+                        />
+                        <span>Paving & Decking</span>
+                      </label>                             
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subLandscapeOutdoors" value="Furniture, Furnishing, Fixtures" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(103)} 
+                            else {removeSubCategory(103)}
+                          }}
+                        />
+                        <span>Furniture, Furnishing, Fixtures</span>
+                      </label>                             
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subLandscapeOutdoors" value="Green Walls & Vertical Gardens" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(104)} 
+                            else {removeSubCategory(104)}
+                          }}
+                        />
+                        <span>Green Walls & Vertical Gardens</span>
+                      </label>                             
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subLandscapeOutdoors" value="Plants, Pots,Trees" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(105)} 
+                            else {removeSubCategory(105)}
+                          }}
+                        />
+                        <span>Plants, Pots,Trees</span>
+                      </label>                             
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subLandscapeOutdoors" value="Outdoor Playground Equipment" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(106)} 
+                            else {removeSubCategory(106)}
+                          }}
+                        />
+                        <span>Outdoor Playground Equipment</span>
+                      </label>                             
+                      <label className=" ml-5 items-center space-x-2">
+                        <input type="checkbox" name="subLandscapeOutdoors" value="Pools, Spa, Sauna Solutions" className="text-blue-600 focus:ring-blue-500"   
+                          onChange={(e)=> {
+                            if (e.target.checked) {addSubCategory(107)} 
+                            else {removeSubCategory(107)}
+                          }}
+                        />
+                        <span>Pools, Spa, Sauna Solutions</span>
+                      </label> 
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="furniture" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(12)} 
-                              else {removeProductCategory(12)}
-                            }}
-                          />
-                          <span>Furniture</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="furniture" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(12)} 
+                            else {removeProductCategory(12)}
+                          }}
+                        />
+                        <span>Furniture</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="interior_finishes" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(13)} 
-                              else {removeProductCategory(13)}
-                            }}
-                          />
-                          <span>Interior & Finishes</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="interior_finishes" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(13)} 
+                            else {removeProductCategory(13)}
+                          }}
+                        />
+                        <span>Interior & Finishes</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="building_material" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(14)} 
-                              else {removeProductCategory(14)}
-                            }}
-                          />
-                          <span>Building Material</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="building_material" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(14)} 
+                            else {removeProductCategory(14)}
+                          }}
+                        />
+                        <span>Building Material</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="appliances" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(15)} 
-                              else {removeProductCategory(15)}
-                            }}
-                          />
-                          <span>Appliances</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="appliances" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(15)} 
+                            else {removeProductCategory(15)}
+                          }}
+                        />
+                        <span>Appliances</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="tools_machinery" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(16)} 
-                              else {removeProductCategory(16)}
-                            }}
-                          />
-                          <span>Tools & Machinery</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="tools_machinery" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(16)} 
+                            else {removeProductCategory(16)}
+                          }}
+                        />
+                        <span>Tools & Machinery</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="intelligent_building_digital_architecture" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(17)} 
-                              else {removeProductCategory(17)}
-                            }}
-                          />
-                          <span>Intelligent Building & Digital Architecture</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="intelligent_building_digital_architecture" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(17)} 
+                            else {removeProductCategory(17)}
+                          }}
+                        />
+                        <span>Intelligent Building & Digital Architecture</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="construction_chemical" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(18)} 
-                              else {removeProductCategory(18)}
-                            }}
-                          />
-                          <span>Construction Chemical</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="construction_chemical" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(18)} 
+                            else {removeProductCategory(18)}
+                          }}
+                        />
+                        <span>Construction Chemical</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="hse_products" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(19)} 
-                              else {removeProductCategory(19)}
-                            }}
-                          />
-                          <span>HSE Products</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="hse_products" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(19)} 
+                            else {removeProductCategory(19)}
+                          }}
+                        />
+                        <span>HSE Products</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="cement_concrete_mortar" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(20)} 
-                              else {removeProductCategory(20)}
-                            }}
-                          />
-                          <span>Cement, Concrete, Mortar</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="cement_concrete_mortar" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(20)} 
+                            else {removeProductCategory(20)}
+                          }}
+                        />
+                        <span>Cement, Concrete, Mortar</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="modular_construction_system" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(21)} 
-                              else {removeProductCategory(21)}
-                            }}
-                          />
-                          <span>Modular Construction System</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="modular_construction_system" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(21)} 
+                            else {removeProductCategory(21)}
+                          }}
+                        />
+                        <span>Modular Construction System</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="structural_building_products" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(22)} 
-                              else {removeProductCategory(22)}
-                            }}
-                          />
-                          <span>Structural Building Products</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="structural_building_products" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(22)} 
+                            else {removeProductCategory(22)}
+                          }}
+                        />
+                        <span>Structural Building Products</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="iron_steel" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(23)} 
-                              else {removeProductCategory(23)}
-                            }}
-                          />
-                          <span>Iron & Steel</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="iron_steel" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(23)} 
+                            else {removeProductCategory(23)}
+                          }}
+                        />
+                        <span>Iron & Steel</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="audio_visual_system" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(24)} 
-                              else {removeProductCategory(24)}
-                            }}
-                          />
-                          <span>Audio Visual System</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="audio_visual_system" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(24)} 
+                            else {removeProductCategory(24)}
+                          }}
+                        />
+                        <span>Audio Visual System</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="hvacr" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(25)} 
-                              else {removeProductCategory(25)}
-                            }}
-                          />
-                          <span>HVACR</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="hvacr" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(25)} 
+                            else {removeProductCategory(25)}
+                          }}
+                        />
+                        <span>HVACR</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="security_safety" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(26)} 
-                              else {removeProductCategory(26)}
-                            }}
-                          />
-                          <span>Security Safety</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="security_safety" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(26)} 
+                            else {removeProductCategory(26)}
+                          }}
+                        />
+                        <span>Security Safety</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="fire_safety" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(27)} 
-                              else {removeProductCategory(27)}
-                            }}
-                          />
-                          <span>Fire Safety</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="fire_safety" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(27)} 
+                            else {removeProductCategory(27)}
+                          }}
+                        />
+                        <span>Fire Safety</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="car_park_system" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(28)} 
-                              else {removeProductCategory(28)}
-                            }}
-                          />
-                          <span>Car Park System</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="car_park_system" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(28)} 
+                            else {removeProductCategory(28)}
+                          }}
+                        />
+                        <span>Car Park System</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="lighting" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(29)} 
-                              else {removeProductCategory(29)}
-                            }}
-                          />
-                          <span>Lighting</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="lighting" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(29)} 
+                            else {removeProductCategory(29)}
+                          }}
+                        />
+                        <span>Lighting</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="electrical_system" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(30)} 
-                              else {removeProductCategory(30)}
-                            }}
-                          />
-                          <span>Electrical System</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="electrical_system" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(30)} 
+                            else {removeProductCategory(30)}
+                          }}
+                        />
+                        <span>Electrical System</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="plumbing_drainage_systems" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(31)} 
-                              else {removeProductCategory(31)}
-                            }}
-                          />
-                          <span>Plumbing & Drainage Systems</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="plumbing_drainage_systems" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(31)} 
+                            else {removeProductCategory(31)}
+                          }}
+                        />
+                        <span>Plumbing & Drainage Systems</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="maters_gauges_regulators" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(32)} 
-                              else {removeProductCategory(32)}
-                            }}
-                          />
-                          <span>Maters, Gauges & Regulators</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="maters_gauges_regulators" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(32)} 
+                            else {removeProductCategory(32)}
+                          }}
+                        />
+                        <span>Maters, Gauges & Regulators</span>
+                    </label>
+                    </div>
+                    <div className="grid grid-cols-1">
                       <label className="flex items-center space-x-2">
-                          <input type="checkbox" name="productCategory" value="Accessibility" className="text-blue-600 focus:ring-blue-500"    
-                            onChange={(e)=> {
-                              if (e.target.checked) {addProductCategory(33)} 
-                              else {removeProductCategory(33)}
-                            }}
-                          />
-                          <span>Accessibility</span>
-                      </label>
+                        <input type="checkbox" name="productCategory" value="Accessibility" className="text-blue-600 focus:ring-blue-500"    
+                          onChange={(e)=> {
+                            if (e.target.checked) {addProductCategory(33)} 
+                            else {removeProductCategory(33)}
+                          }}
+                        />
+                        <span>Accessibility</span>
+                    </label>
                     </div>
                   </div>
+                </div>
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Desired Feature</label>
