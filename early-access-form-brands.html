@@ -147,86 +147,866 @@
             <div class="py-4">
                 <label class="block text-sm font-medium text-gray-700 mb-2">Product Category</label>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="bathrooms" class="text-blue-600 focus:ring-blue-500">
-                    <span>Bathrooms</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="kitchens" class="text-blue-600 focus:ring-blue-500">
-                    <span>Kitchens</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="floorings" class="text-blue-600 focus:ring-blue-500">
-                    <span>Floorings</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="ceilings" class="text-blue-600 focus:ring-blue-500">
-                    <span>Ceilings</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="wall_partitions" class="text-blue-600 focus:ring-blue-500">
-                    <span>Wall & Partitions</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="paints_protective_coatings" class="text-blue-600 focus:ring-blue-500">
-                    <span>Paints & Protective Coatings</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="cladding" class="text-blue-600 focus:ring-blue-500">
-                    <span>Cladding</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="processed_wood" class="text-blue-600 focus:ring-blue-500">
-                    <span>Processed Wood</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="roofing" class="text-blue-600 focus:ring-blue-500">
-                    <span>Roofing</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="door_windows" class="text-blue-600 focus:ring-blue-500">
-                    <span>Door & Windows</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="landscape_outdoors" class="text-blue-600 focus:ring-blue-500">
-                    <span>Landscape & Outdoors</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="furniture" class="text-blue-600 focus:ring-blue-500">
-                    <span>Furniture</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="interior_finishes" class="text-blue-600 focus:ring-blue-500">
-                    <span>Interior & Finishes</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="building_material" class="text-blue-600 focus:ring-blue-500">
-                    <span>Building Material</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="appliances" class="text-blue-600 focus:ring-blue-500">
-                    <span>Appliances</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="tools_machinery" class="text-blue-600 focus:ring-blue-500">
-                    <span>Tools & Machinery</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="intelligent_building_digital_architecture" class="text-blue-600 focus:ring-blue-500">
-                    <span>Intelligent Building & Digital Architecture</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="construction_chemical" class="text-blue-600 focus:ring-blue-500">
-                    <span>Construction Chemical</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="hse_products" class="text-blue-600 focus:ring-blue-500">
-                    <span>HSE Products</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" name="product_category" value="cement_concrete_mortar" class="text-blue-600 focus:ring-blue-500">
-                    <span>Cement, Concrete, Mortar</span>
-                </label>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="bathrooms" class="text-blue-600 focus:ring-blue-500">
+                        <span>Bathrooms</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="sanitary_ware" class="text-blue-600 focus:ring-blue-500">
+                            <span>Sanitary Ware</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="sanitary_fitting" class="text-blue-600 focus:ring-blue-500">
+                            <span>Sanitary Fitting</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="cubicle_partitions" class="text-blue-600 focus:ring-blue-500">
+                            <span>Cubicle &amp; Partitions</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="kitchens" class="text-blue-600 focus:ring-blue-500">
+                        <span>Kitchens</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="kitchen_accessories" class="text-blue-600 focus:ring-blue-500">
+                            <span>Kitchen Accessories</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="kitchen_appliances" class="text-blue-600 focus:ring-blue-500">
+                            <span>Appliances</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="floorings" class="text-blue-600 focus:ring-blue-500">
+                        <span>Floorings</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="marble" class="text-blue-600 focus:ring-blue-500">
+                            <span>Marble</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="mosaic_tiles" class="text-blue-600 focus:ring-blue-500">
+                            <span>Mosaic Tiles</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="vinyl_flooring" class="text-blue-600 focus:ring-blue-500">
+                            <span>Vinyl Flooring</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="ceramic_tiles" class="text-blue-600 focus:ring-blue-500">
+                            <span>Ceramic Tiles</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="homogeneous_flooring_tiles" class="text-blue-600 focus:ring-blue-500">
+                            <span>Homogeneous Flooring Tiles</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="granite_flooring_tiles" class="text-blue-600 focus:ring-blue-500">
+                            <span>Granite Flooring Tiles</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="stone_plastic_composite_flooring" class="text-blue-600 focus:ring-blue-500">
+                            <span>Stone Plastic Composite Flooring</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="parquet_flooring" class="text-blue-600 focus:ring-blue-500">
+                            <span>Parquet Flooring</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="tile_grout" class="text-blue-600 focus:ring-blue-500">
+                            <span>Tile Grout</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="wood_plastic_composite_flooring" class="text-blue-600 focus:ring-blue-500">
+                            <span>Wood Plastic Composite (WPC) Flooring</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="outdoor_floor" class="text-blue-600 focus:ring-blue-500">
+                            <span>Outdoor Floor</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="floor_deck_system" class="text-blue-600 focus:ring-blue-500">
+                            <span>Floor Deck System</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="pl-3 space-y-2">
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="product_category" value="ceilings" class="text-blue-600 focus:ring-blue-500">
+                        <span>Ceilings</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="plafond_grc" class="text-blue-600 focus:ring-blue-500">
+                            <span>Plafond GRC</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="plafond_gypsum" class="text-blue-600 focus:ring-blue-500">
+                            <span>Plafond Gypsum</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="pvc_ceiling_panels" class="text-blue-600 focus:ring-blue-500">
+                            <span>PVC Ceiling Panels</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="ceiling_frame" class="text-blue-600 focus:ring-blue-500">
+                            <span>Ceiling Frame</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="glass_reinforced_concrete" class="text-blue-600 focus:ring-blue-500">
+                            <span>Glass Reinforced Concrete (GRC)</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="gypsum_board" class="text-blue-600 focus:ring-blue-500">
+                            <span>Gypsum Board</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="cement_fiberboard" class="text-blue-600 focus:ring-blue-500">
+                            <span>Cement Fiberboard</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="acoustic_insulation" class="text-blue-600 focus:ring-blue-500">
+                            <span>Acoustic Insulation / Soundproofing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="corner_beads_drywall" class="text-blue-600 focus:ring-blue-500">
+                            <span>Corner Beads for Drywall</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="fiberglass_building_materials" class="text-blue-600 focus:ring-blue-500">
+                            <span>Fiberglass Building Materials</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="wall_partitions" class="text-blue-600 focus:ring-blue-500">
+                        <span>Wall & Partitions</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="wall" class="text-blue-600 focus:ring-blue-500">
+                            <span>Wall</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="partitions" class="text-blue-600 focus:ring-blue-500">
+                            <span>Partitions</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="slab_sheet_board" class="text-blue-600 focus:ring-blue-500">
+                            <span>Slab, Sheet, Board</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="acoustic" class="text-blue-600 focus:ring-blue-500">
+                            <span>Acoustic</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="insulation_thermal_barrier" class="text-blue-600 focus:ring-blue-500">
+                            <span>Insulation & Thermal Barrier</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="concrete_block" class="text-blue-600 focus:ring-blue-500">
+                            <span>Concrete Block</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="aerated_concrete_block" class="text-blue-600 focus:ring-blue-500">
+                            <span>Aerated Concrete Block</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="red_brick" class="text-blue-600 focus:ring-blue-500">
+                            <span>Red Brick</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="mortar" class="text-blue-600 focus:ring-blue-500">
+                            <span>Mortar</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="paints_protective_coatings" class="text-blue-600 focus:ring-blue-500">
+                        <span>Paints & Protective Coatings</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="floor_paint" class="text-blue-600 focus:ring-blue-500">
+                            <span>Floor Paint</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="natural_stone_coating" class="text-blue-600 focus:ring-blue-500">
+                            <span>Natural Stone Coating</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="metal_iron_paint" class="text-blue-600 focus:ring-blue-500">
+                            <span>Metal and Iron Paint</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="waterproof_coating" class="text-blue-600 focus:ring-blue-500">
+                            <span>Waterproof Coating</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="wall_paint" class="text-blue-600 focus:ring-blue-500">
+                            <span>Wall Paint</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="gypsum_plasterboard_paint" class="text-blue-600 focus:ring-blue-500">
+                            <span>Gypsum & Plasterboard Paint</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="roof_paint" class="text-blue-600 focus:ring-blue-500">
+                            <span>Roof Paint</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="decorative_paint" class="text-blue-600 focus:ring-blue-500">
+                            <span>Decorative Paint</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="fire_resistant_coating" class="text-blue-600 focus:ring-blue-500">
+                            <span>Fire-resistant Coating</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="varnish_wood_finish" class="text-blue-600 focus:ring-blue-500">
+                            <span>Varnish & Wood Finish</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="leak_resistant_fiber" class="text-blue-600 focus:ring-blue-500">
+                            <span>Leak-resistant Fiber</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="protective_coatings_gloss_finish" class="text-blue-600 focus:ring-blue-500">
+                            <span>Protective Coatings & Gloss Finish</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="plaster_stucco" class="text-blue-600 focus:ring-blue-500">
+                            <span>Plaster & Stucco</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="cladding" class="text-blue-600 focus:ring-blue-500">
+                        <span>Cladding</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="wallpanel" class="text-blue-600 focus:ring-blue-500">
+                            <span>Wallpanel</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="facade" class="text-blue-600 focus:ring-blue-500">
+                            <span>Facade</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="acp" class="text-blue-600 focus:ring-blue-500">
+                            <span>ACP</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="modified_clay_material" class="text-blue-600 focus:ring-blue-500">
+                            <span>Modified Clay Material (MCM)</span>
+                        </label>
+                    </div>
+                </div></label>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="processed_wood" class="text-blue-600 focus:ring-blue-500">
+                        <span>Processed Wood</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="plywood" class="text-blue-600 focus:ring-blue-500">
+                            <span>Plywood</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="blockboard" class="text-blue-600 focus:ring-blue-500">
+                            <span>Blockboard</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="hdf_hardboard" class="text-blue-600 focus:ring-blue-500">
+                            <span>HDF / Hardboard</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="mdf" class="text-blue-600 focus:ring-blue-500">
+                            <span>MDF</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="hmr" class="text-blue-600 focus:ring-blue-500">
+                            <span>HMR</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="ldf_particle_board" class="text-blue-600 focus:ring-blue-500">
+                            <span>LDF / Particle Board</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="roofing" class="text-blue-600 focus:ring-blue-500">
+                        <span>Roofing</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="awning" class="text-blue-600 focus:ring-blue-500">
+                            <span>Awning</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="gutters" class="text-blue-600 focus:ring-blue-500">
+                            <span>Gutters</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="ridge" class="text-blue-600 focus:ring-blue-500">
+                            <span>Ridge</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="roof_structure_frames" class="text-blue-600 focus:ring-blue-500">
+                            <span>Roof Structure & Frames</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="lightweight_steel_frames" class="text-blue-600 focus:ring-blue-500">
+                            <span>Lightweight Steel Frames</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="roof_accessories" class="text-blue-600 focus:ring-blue-500">
+                            <span>Roof Accessories</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="bitumen_roofing" class="text-blue-600 focus:ring-blue-500">
+                            <span>Bitumen Roofing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="upvc_roofing" class="text-blue-600 focus:ring-blue-500">
+                            <span>uPVC Roofing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="pvc_structured_roofing" class="text-blue-600 focus:ring-blue-500">
+                            <span>PVC Structured Roofing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="spandex_roofing_sheets" class="text-blue-600 focus:ring-blue-500">
+                            <span>Spandex Roofing Sheets</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="cement_roofing" class="text-blue-600 focus:ring-blue-500">
+                            <span>Cement Roofing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="concrete_roofing" class="text-blue-600 focus:ring-blue-500">
+                            <span>Concrete Roofing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="polycarbonate_roofing" class="text-blue-600 focus:ring-blue-500">
+                            <span>Polycarbonate Roofing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="gutter_liners" class="text-blue-600 focus:ring-blue-500">
+                            <span>Gutter Liners</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="corrugated_metal_sheets" class="text-blue-600 focus:ring-blue-500">
+                            <span>Corrugated Metal Sheets</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="sustainable_green_roofs" class="text-blue-600 focus:ring-blue-500">
+                            <span>Sustainable Green Roofs</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="shingle_roofing" class="text-blue-600 focus:ring-blue-500">
+                            <span>Shingle Roofing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="membrane_roofing" class="text-blue-600 focus:ring-blue-500">
+                            <span>Membrane Roofing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="thatched_roofing" class="text-blue-600 focus:ring-blue-500">
+                            <span>Thatched Roofing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="fibre_cement_roofing" class="text-blue-600 focus:ring-blue-500">
+                            <span>Fibre Cement Roofing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="stone_roofing" class="text-blue-600 focus:ring-blue-500">
+                            <span>Stone Roofing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="decoration_roofing" class="text-blue-600 focus:ring-blue-500">
+                            <span>Decoration Roofing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="ceramic_roofing" class="text-blue-600 focus:ring-blue-500">
+                            <span>Ceramic Roofing</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="door_windows" class="text-blue-600 focus:ring-blue-500">
+                        <span>Door & Windows</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="ironmongery" class="text-blue-600 focus:ring-blue-500">
+                            <span>Ironmongery</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="digital_lock" class="text-blue-600 focus:ring-blue-500">
+                            <span>Digital Lock</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="steel_door" class="text-blue-600 focus:ring-blue-500">
+                            <span>Steel Door</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="wooden_door" class="text-blue-600 focus:ring-blue-500">
+                            <span>Wooden Door</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="shutter_rolling_door" class="text-blue-600 focus:ring-blue-500">
+                            <span>Shutter/Rolling Door</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="abs_door" class="text-blue-600 focus:ring-blue-500">
+                            <span>ABS Door</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="wpc_door" class="text-blue-600 focus:ring-blue-500">
+                            <span>WPC Door</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="pvc_door" class="text-blue-600 focus:ring-blue-500">
+                            <span>PVC Door</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="aluminum_door" class="text-blue-600 focus:ring-blue-500">
+                            <span>Aluminum Door</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="upvc_door" class="text-blue-600 focus:ring-blue-500">
+                            <span>uPVC Door</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="engineered_door" class="text-blue-600 focus:ring-blue-500">
+                            <span>Engineered Door</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="automatic_doors_gates" class="text-blue-600 focus:ring-blue-500">
+                            <span>Automatic Doors/Gates</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="folding_sliding_doors" class="text-blue-600 focus:ring-blue-500">
+                            <span>Folding & Sliding Doors</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="aluminum_profile" class="text-blue-600 focus:ring-blue-500">
+                            <span>Aluminum Profile</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="glass_glazing" class="text-blue-600 focus:ring-blue-500">
+                            <span>Glass & Glazing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="windows_fittings" class="text-blue-600 focus:ring-blue-500">
+                            <span>Windows & Fittings</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="windows_accessories" class="text-blue-600 focus:ring-blue-500">
+                            <span>Windows & Accessories</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="landscape_outdoors" class="text-blue-600 focus:ring-blue-500">
+                        <span>Landscape & Outdoors</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="garages_fencing" class="text-blue-600 focus:ring-blue-500">
+                            <span>Garages & Fencing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="outdoor_covers_blinds_shades_screens" class="text-blue-600 focus:ring-blue-500">
+                            <span>Outdoor Covers, Blinds, Shades, Screens</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="paving_decking" class="text-blue-600 focus:ring-blue-500">
+                            <span>Paving & Decking</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="furniture_furnishing_fixtures" class="text-blue-600 focus:ring-blue-500">
+                            <span>Furniture, Furnishing, Fixtures</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="green_walls_vertical_gardens" class="text-blue-600 focus:ring-blue-500">
+                            <span>Green Walls & Vertical Gardens</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="plants_pots_trees" class="text-blue-600 focus:ring-blue-500">
+                            <span>Plants, Pots, Trees</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="outdoor_playground_equipment" class="text-blue-600 focus:ring-blue-500">
+                            <span>Outdoor Playground Equipment</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="pools_spa_sauna_solutions" class="text-blue-600 focus:ring-blue-500">
+                            <span>Pools, Spa, Sauna Solutions</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="furniture" class="text-blue-600 focus:ring-blue-500">
+                        <span>Furniture</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="beds_bedding_accessories" class="text-blue-600 focus:ring-blue-500">
+                            <span>Beds & Bedding Accessories</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="cabinet_shelves_storages" class="text-blue-600 focus:ring-blue-500">
+                            <span>Cabinet, Shelves, Storages</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="fabric_textiles_upholsteries" class="text-blue-600 focus:ring-blue-500">
+                            <span>Fabric, Textiles, Upholsteries</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="office_commercial_furniture" class="text-blue-600 focus:ring-blue-500">
+                            <span>Office & Commercial Furniture</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="office_equipment_supplies" class="text-blue-600 focus:ring-blue-500">
+                            <span>Office & Equipment Supplies</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="sofas_lounge_chair_armchairs" class="text-blue-600 focus:ring-blue-500">
+                            <span>Sofas, Lounge Chair, Armchairs</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="chair_seating" class="text-blue-600 focus:ring-blue-500">
+                            <span>Chair, Seating</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="tables_desk" class="text-blue-600 focus:ring-blue-500">
+                            <span>Tables & Desk</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="chandelier" class="text-blue-600 focus:ring-blue-500">
+                            <span>Chandelier</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="ceramic_wares" class="text-blue-600 focus:ring-blue-500">
+                            <span>Ceramic Wares</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="interior_finishes" class="text-blue-600 focus:ring-blue-500">
+                        <span>Interior & Finishes</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="engineered_stones" class="text-blue-600 focus:ring-blue-500">
+                            <span>Engineered Stones</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="fabrics_textiles_upholstery" class="text-blue-600 focus:ring-blue-500">
+                            <span>Fabrics, Textiles, Upholstery</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="carpet_laminate_floor_surfaces" class="text-blue-600 focus:ring-blue-500">
+                            <span>Carpet, Laminate, Floor Surfaces</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="curtain_blinds" class="text-blue-600 focus:ring-blue-500">
+                            <span>Curtain & Blinds</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="glass_polycarbonate_acrylic_sheets" class="text-blue-600 focus:ring-blue-500">
+                            <span>Glass, Polycarbonate, Acrylic Sheets</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="hpl_laminates_veneers" class="text-blue-600 focus:ring-blue-500">
+                            <span>HPL, Laminates, Veneers</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="natural_stones" class="text-blue-600 focus:ring-blue-500">
+                            <span>Natural Stones</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="paints_coatings_textures" class="text-blue-600 focus:ring-blue-500">
+                            <span>Paints, Coatings & Textures</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="quartz" class="text-blue-600 focus:ring-blue-500">
+                            <span>Quartz</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="solid_surfaces" class="text-blue-600 focus:ring-blue-500">
+                            <span>Solid Surfaces</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="tiles" class="text-blue-600 focus:ring-blue-500">
+                            <span>Tiles</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="wallpaper_decorative_prints_features" class="text-blue-600 focus:ring-blue-500">
+                            <span>Wallpaper, Decorative Prints & Features</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="recessed_aluminium_profile_tali_air" class="text-blue-600 focus:ring-blue-500">
+                            <span>Recessed Aluminium Profile / Tali Air</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="pvc_sheets" class="text-blue-600 focus:ring-blue-500">
+                            <span>PVC Sheets</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="soft_furnishing" class="text-blue-600 focus:ring-blue-500">
+                            <span>Soft Furnishing</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="building_material" class="text-blue-600 focus:ring-blue-500">
+                        <span>Building Material</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="adhesives_bonding_agents" class="text-blue-600 focus:ring-blue-500">
+                            <span>Adhesives & Bonding Agents</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="balustrades_railing_systems" class="text-blue-600 focus:ring-blue-500">
+                            <span>Balustrades & Railing Systems</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="bricks_blocks_concrete" class="text-blue-600 focus:ring-blue-500">
+                            <span>Bricks, Blocks, Concrete</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="nut_and_bolt" class="text-blue-600 focus:ring-blue-500">
+                            <span>Nut and Bolt</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="construction_building_accessories" class="text-blue-600 focus:ring-blue-500">
+                            <span>Construction & Building Accessories</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="fencing" class="text-blue-600 focus:ring-blue-500">
+                            <span>Fencing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="railings" class="text-blue-600 focus:ring-blue-500">
+                            <span>Railings</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="signs_signage_solutions" class="text-blue-600 focus:ring-blue-500">
+                            <span>Signs & Signage Solutions</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="sealant" class="text-blue-600 focus:ring-blue-500">
+                            <span>Sealant</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="compound" class="text-blue-600 focus:ring-blue-500">
+                            <span>Compound</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="appliances" class="text-blue-600 focus:ring-blue-500">
+                        <span>Appliances</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="dishwashers_waste_disposal_faucets" class="text-blue-600 focus:ring-blue-500">
+                            <span>Dishwashers, Waste Disposal & Faucets</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="fridges_freezers" class="text-blue-600 focus:ring-blue-500">
+                            <span>Fridges & Freezers</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="chiller" class="text-blue-600 focus:ring-blue-500">
+                            <span>Chiller</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="ovens_cooking_appliances" class="text-blue-600 focus:ring-blue-500">
+                            <span>Ovens & Cooking Appliances</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="tools_equipment" class="text-blue-600 focus:ring-blue-500">
+                            <span>Tools & Equipment</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="furniture_accessories" class="text-blue-600 focus:ring-blue-500">
+                            <span>Furniture Accessories</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="tools_machinery" class="text-blue-600 focus:ring-blue-500">
+                        <span>Tools & Machinery</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="tools" class="text-blue-600 focus:ring-blue-500">
+                            <span>Tools</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="power_tools" class="text-blue-600 focus:ring-blue-500">
+                            <span>Power Tools</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="hose" class="text-blue-600 focus:ring-blue-500">
+                            <span>Hose</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="abrasives" class="text-blue-600 focus:ring-blue-500">
+                            <span>Abrasives</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="intelligent_building_digital_architecture" class="text-blue-600 focus:ring-blue-500">
+                        <span>Intelligent Building & Digital Architecture</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="3d_printing_technologies" class="text-blue-600 focus:ring-blue-500">
+                            <span>3D Printing Technologies</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="bim_cad" class="text-blue-600 focus:ring-blue-500">
+                            <span>BIM / CAD</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="internet_technology" class="text-blue-600 focus:ring-blue-500">
+                            <span>Internet Technology</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="retrofitting_specialist" class="text-blue-600 focus:ring-blue-500">
+                            <span>Retrofitting Specialist</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="construction_chemical" class="text-blue-600 focus:ring-blue-500">
+                        <span>Construction Chemical</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="admixture_concrete_repair" class="text-blue-600 focus:ring-blue-500">
+                            <span>Admixture & Concrete Repair</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="waterproofing" class="text-blue-600 focus:ring-blue-500">
+                            <span>Waterproofing</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="additives" class="text-blue-600 focus:ring-blue-500">
+                            <span>Additives</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="thinner" class="text-blue-600 focus:ring-blue-500">
+                            <span>Thinner</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="bonding_agent" class="text-blue-600 focus:ring-blue-500">
+                            <span>Bonding Agent</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="insect_pest_control" class="text-blue-600 focus:ring-blue-500">
+                            <span>Insect & Pest Control</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="epoxy" class="text-blue-600 focus:ring-blue-500">
+                            <span>Epoxy</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="floor_hardener" class="text-blue-600 focus:ring-blue-500">
+                            <span>Floor Hardener</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="hse_products" class="text-blue-600 focus:ring-blue-500">
+                        <span>HSE Products</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="safety_rope" class="text-blue-600 focus:ring-blue-500">
+                            <span>Safety Rope</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="safety_net" class="text-blue-600 focus:ring-blue-500">
+                            <span>Safety Net</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="vest_safety_vest" class="text-blue-600 focus:ring-blue-500">
+                            <span>Vest / Safety Vest</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="road_barrier_traffic_barrier" class="text-blue-600 focus:ring-blue-500">
+                            <span>Road Barrier / Traffic Barrier</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="helmet" class="text-blue-600 focus:ring-blue-500">
+                            <span>Helmet</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="safety_shoes" class="text-blue-600 focus:ring-blue-500">
+                            <span>Safety Shoes</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="project_light_construction_light" class="text-blue-600 focus:ring-blue-500">
+                            <span>Project Light / Construction Light</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row items-center space-x-2">
+                    <label class="space-x-2 pb-2 block">
+                        <input type="checkbox" name="product_category" value="cement_concrete_mortar" class="text-blue-600 focus:ring-blue-500">
+                        <span>Cement, Concrete, Mortar</span>
+                    </label>
+                    <div class="pl-3 space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="cement" class="text-blue-600 focus:ring-blue-500">
+                            <span>Cement</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="concrete" class="text-blue-600 focus:ring-blue-500">
+                            <span>Concrete</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="mortar" class="text-blue-600 focus:ring-blue-500">
+                            <span>Mortar</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="product_subcategory" value="ready_mix" class="text-blue-600 focus:ring-blue-500">
+                            <span>Ready Mix</span>
+                        </label>
+                    </div>
+                </div>
                 <label class="flex items-center space-x-2">
                     <input type="checkbox" name="product_category" value="modular_construction_system" class="text-blue-600 focus:ring-blue-500">
                     <span>Modular Construction System</span>
