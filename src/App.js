@@ -11,6 +11,9 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import Header from './header';
+import Footer from './footer';
+import GetStarted from './getstarted';
 
 function App() {
   const [areYouA, setAreYouA] = useState('professional')
@@ -213,20 +216,12 @@ function App() {
 
   return (
     <>
-    <header className="bg-white shadow">
-        <div className="container mx-auto px-4 py-4 flex items-center">
-        <a href="#"><img src={logo} alt="Logo" className="h-14 p-2" /></a>
-        <div className="ml-auto">
-          
-        </div>
-        </div>
-    </header>
+    <Header/>
     <div className=" min-h-screen flex items-center justify-center">
         <div className="bg-white shadow-lg rounded-lg mt-10 mb-10 p-8 w-full  max-w-6xl">
-            <h1 className="text-2xl font-medium mb-4">Welcome to Inarcons</h1>
+            <h1 className="text-2xl font-medium mb-4"  name='getStarted' id='getStarted'>Welcome to Inarcons</h1>
             <p className="text-gray-600 mb-6 text-sm ">One stop shop for your building materials, professionals, and networks</p>
-
-            <form action="#" method="POST" className="space-y-4 text-sm">
+            <form action="#" method="POST" className="space-y-4 text-sm" >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
                 <div className='flex space-x-4 items-start'>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Are You a</label>
@@ -3466,7 +3461,8 @@ function App() {
             </form>
         </div>
     </div>
-    
+    <GetStarted />
+    <Footer />
     <Dialog
         open={openDialog}
         onClose={handleOpen}
