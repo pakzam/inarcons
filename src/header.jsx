@@ -7,7 +7,7 @@ const Header = () => {
   const [loading, setLoading] = useState(false)
 
   return (
-    <header className='bg-white shadow-sm sticky top-0 z-50 pt-10 xl:px-6 pb-5'>
+    <header className='bg-white shadow-sm sticky top-0 z-50 pt-4 xl:pt-10 px-4 xl:px-6 pb-5'>
       <div className={openMobileMenu? "w-full xl:max-w-7xl flex justify-between items-center mx-auto  px-10 pt-4 pb-0" 
         : 'container mx-auto flex justify-between items-center '}>
         <div className='flex justify-items-start items-center gap-6'>
@@ -65,7 +65,7 @@ const Header = () => {
       <div  className={openMobileMenu ? "block" : "hidden"}>
         <ul className="text-emerald-700 main-header-menu ast-menu-shadow ast-nav-menu ast-flex  submenu-with-border astra-menu-animation-fade  stack-on-mobile">
           <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-258 pt-0 pr-10 pb-2 text-right">
-            <a href="https://gardamedis.co.id/" className="menu-link">Digital Exhibition</a>
+            <a href="https://inarcons.com/digital-exhibition/megabuild/" className="menu-link">Digital Exhibition</a>
           </li>
         </ul>
       </div>

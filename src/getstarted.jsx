@@ -15,7 +15,7 @@ const GetStarted = () => {
   });
 
   return (
-    <section className="bg-amber-500 xl:px-6 py-16 text-white">
+    <section className="bg-amber-500 px-4 xl:px-6 py-16 text-white">
       <div className="container mx-auto">
         <div className="flex flex-col items-center text-center mb-8">
           <h2 className="text-4xl font-bold mb-2">Are You a Supplier or Manufacturer?</h2>
