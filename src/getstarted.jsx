@@ -23,7 +23,7 @@ const GetStarted = () => {
           <p className="max-w-4xl">Join 500+ brands listing their products, projects, lists, brochures, updates, and more on Inarcons. Get seen and selected by Inarcons community of design specifiers </p>
         </div>
         <div className="flex justify-center">
-          <a href="#getstarted" className="inline-block">            
+          <a href="https://mypanel.inarcons.com" className="inline-block">            
             <ThemeProvider theme={theme}>
             <Button size="md" variant="contained" color="amber">Get Started</Button>
             </ThemeProvider>

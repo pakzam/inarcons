@@ -22,7 +22,14 @@ const Header = () => {
           </a>
           <a href="https://inarcons.com/digital-exhibition/megabuild" className="hidden md:flex text-gray-800 text-xl font-bold relative"
           >Digital Exhibition
-            <div className='absolute h-1.5 left-0 right-0 bg-amber-400' style={{bottom: '-10px'}}></div>
+          </a>
+        </div>
+        <div>
+          <a href="https://mypanel.inarcons.com" className="relative">
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+          <path d="M17.5003 14.5833C20.722 14.5833 23.3337 11.9716 23.3337 8.74996C23.3337 5.5283 20.722 2.91663 17.5003 2.91663C14.2787 2.91663 11.667 5.5283 11.667 8.74996C11.667 11.9716 14.2787 14.5833 17.5003 14.5833Z" fill="#FBBF24"/>
+          <path d="M29.1663 25.5209C29.1663 29.1448 29.1663 32.0834 17.4997 32.0834C5.83301 32.0834 5.83301 29.1448 5.83301 25.5209C5.83301 21.8969 11.0568 18.9584 17.4997 18.9584C23.9426 18.9584 29.1663 21.8969 29.1663 25.5209Z" fill="#FBBF24"/>
+          </svg>
           </a>
         </div>
         <div className='md:hidden'>
