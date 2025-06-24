@@ -14,6 +14,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Header from './header';
 import Footer from './footer';
 import GetStarted from './getstarted';
+import News from './news';
 
 function App() {
   const [areYouA, setAreYouA] = useState('professional')
@@ -3462,6 +3463,7 @@ function App() {
         </div>
     </div>
     <GetStarted />
+    <News />
     <Footer />
     <Dialog
         open={openDialog}
