@@ -25,7 +25,7 @@ const News = () => {
         <div className="flex flex-col items-center text-center mb-8">
           <h2 className="text-4xl font-bold mb-2">News & Updates</h2>
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center items-start gap-6">
           <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               component="img"
@@ -35,15 +35,31 @@ const News = () => {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Talkshow Road To IndoBuildTech Expo 2025
+                Talkshow Road To IndoBuildTech Expo 2025 Bedah Konsep Desain Booth dan Inovasi Brand Pemimpin Pasar
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                Lizards are a widespread group of squamate reptiles, with over 6,000
-                species, ranging across all continents except Antarctica
+                Menjelang penyelenggaraan IndoBuildTech Expo Part 1 – 2025 – edisi terbaru 
+                pameran terbesar building material, arsitektur dan interior di 
               </Typography>
             </CardContent>
             <CardActions>
               <a href='/news/ibt' >
+              <Button size="small">Read More</Button>
+              </a>
+            </CardActions>
+          </Card>
+          <Card sx={{ maxWidth: 345 }}>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Reminder untuk Rekan-rekan Media Partner IndoBuildTech Surabaya 2025
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                Dengan hormat, kami ingin mengingatkan kembali terkait jadwal unggahan 
+                konten IndoBuildTech Surabaya di media sosial: ...
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <a href='/news/reminder' >
               <Button size="small">Read More</Button>
               </a>
             </CardActions>
