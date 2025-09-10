@@ -6,6 +6,8 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 const News = () => {  
   const theme = createTheme({
@@ -18,55 +20,68 @@ const News = () => {
       },
     },
   });
+  
+  const [showSpinner, setShowSpinner] = useState(false);
+  const [showErr, setShowErr] = useState(false);
+  const [posts, setPosts] = useState([]);
+
+  const getPosts = async () => {
+    try {
+      await axios.get(`https://content.inarcons.com/wp-json/wp/v2/posts`)
+      .then(response => {
+        console.log('Posts from server:', response.data);
+        setPosts(response.data)
+        setShowErr(false);
+        setShowSpinner(false);
+      })
+      .catch(error => {
+        console.error('There was an error making the request:', error);
+        setShowErr(true);
+        setShowSpinner(false);
+      });   
+    } catch (error) {
+      console.error(error)
+    } finally {
+    }
+  }
+  useEffect(() => {
+    getPosts()
+  },[])
 
   return (
+    <>
+    {posts.length> 0 ?
     <section className="bg-white px-4 xl:px-6 py-16 text-black">
       <div className="container mx-auto">    
         <div className="flex flex-col items-center text-center mb-8">
           <h2 className="text-4xl font-bold mb-2">News & Updates</h2>
         </div>
         <div className="flex justify-center items-start gap-6">
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
+          {posts.map((item, id) => (
+            <Card sx={{ maxWidth: 345 }} key={id}>
+            {/*<CardMedia
               component="img"
               alt="green iguana"
               height="140"
               image="https://cdn.lynkid.my.id/products/23-06-2025/1750637558040_1919158.webp"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Talkshow Road To IndoBuildTech Expo 2025 Bedah Konsep Desain Booth dan Inovasi Brand Pemimpin Pasar
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                Menjelang penyelenggaraan IndoBuildTech Expo Part 1 – 2025 – edisi terbaru 
-                pameran terbesar building material, arsitektur dan interior di 
-              </Typography>
+            />*/}
+            <CardContent>              
+              <div dangerouslySetInnerHTML={{ __html: item.title.rendered }}
+              className='text-2xl mb-4' />
+              <div dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
             </CardContent>
             <CardActions>
-              <a href='/news/ibt' >
+              <a href={`/news/${item.slug}`} >
               <Button size="small">Read More</Button>
               </a>
             </CardActions>
           </Card>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Reminder untuk Rekan-rekan Media Partner IndoBuildTech Surabaya 2025
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                Dengan hormat, kami ingin mengingatkan kembali terkait jadwal unggahan 
-                konten IndoBuildTech Surabaya di media sosial: ...
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <a href='/news/reminder' >
-              <Button size="small">Read More</Button>
-              </a>
-            </CardActions>
-          </Card>
+          ))}
         </div>
       </div>
     </section>
+    : <></>}
+    </>
   )
 }
 export default News
