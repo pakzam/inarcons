@@ -27,7 +27,7 @@ const News = () => {
 
   const getPosts = async () => {
     try {
-      await axios.get(`https://content.inarcons.com/wp-json/wp/v2/posts`)
+      await axios.get(`https://content.inarcons.com/wp-json/wp/v2/posts?categories=3`)
       .then(response => {
         console.log('Posts from server:', response.data);
         setPosts(response.data)

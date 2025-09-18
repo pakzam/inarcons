@@ -1,5 +1,4 @@
 
-import logo from './assets/img/logo-inarcons.png'
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
 import axios from 'axios';
@@ -16,6 +15,7 @@ import News from './news';
 import promo from './assets/img/opreg.png'
 import './App.css';
 import { useState, useEffect } from 'react';
+import Banner from './banner';
 
 export default function Home() {
   const [areYouA, setAreYouA] = useState('professional')
@@ -216,13 +216,11 @@ export default function Home() {
     uncheck()
   },[areYouA])
 
+
   return (
     <>
-    <div className='container mx-auto mb-10 max-w-4xl mt-10 mb-6'>
-      <img src={promo} alt="Inarcons Logo" className="object-contain w-full h-auto rounded-lg"/>
-      </div>
-    <div className=" min-h-screen flex items-center justify-center">
-      
+    <Banner />
+    <div className=" min-h-screen flex items-center justify-center">      
         <div className="bg-white shadow-lg rounded-lg mt-10 mb-10 p-8 w-full  max-w-6xl">
             <h1 className="text-2xl font-medium mb-4"  name='getStarted' id='getStarted'>Welcome to Inarcons</h1>
             <p className="text-gray-600 mb-6 text-sm ">One stop shop for your building materials, professionals, and networks</p>
